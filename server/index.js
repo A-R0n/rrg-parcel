@@ -25,7 +25,6 @@ app.use(
   permissionsPolicy({
     features: {
       fullscreen: ["self"], // fullscreen=()
-      vibrate: ["none"], // vibrate=(none)
       payment: ["self", '"rrgmap.tech"'], // payment=(self "example.com")
       syncXhr: [], // syncXhr=()
     },
