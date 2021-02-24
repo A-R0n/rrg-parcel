@@ -1,0 +1,35 @@
+{
+  "name": "rrg-parcel",
+  "version": "1.0.0",
+  "description": "Rock Climbing Map for Red River Gorge",
+  "private": true,
+  "main": "./src/index.js",
+  "proxy": "http://127.0.0.1:8888",
+  "scripts": {
+    "start": "parcel serve public/index.html",
+    "build": "rm -rf build && parcel build public/index.html -d build"
+  },
+  "author": "Aaron Estes",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "@reach/combobox": "^0.13.2",
+    "@react-google-maps/api": "^2.1.1",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dont-sniff-mimetype": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "frameguard": "^4.0.0",
+    "hsts": "^2.2.0",
+    "massive": "^6.6.5",
+    "permissions-policy": "^0.3.0",
+    "react": "^17.0.1",
+    "react-animate-height": "^2.0.23",
+    "react-dom": "^17.0.1",
+    "referrer-policy": "^1.2.0"
+  }
+}

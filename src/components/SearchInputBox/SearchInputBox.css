@@ -1,0 +1,10 @@
+.special-box {
+    width: 94vw;
+    height: 6vh;
+    font-size: 1.25em;
+    transition: width .75s;
+}
+
+.special-box-list {
+    font: 1.25em Arial;
+}
