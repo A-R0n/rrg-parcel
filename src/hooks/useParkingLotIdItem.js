@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import axios from "axios";
+import {get, CancelToken, isCancel} from "axios";
 
 const useParkingLotIdItem = (id) => {
   console.log("id: ,", id);
@@ -8,11 +8,10 @@ const useParkingLotIdItem = (id) => {
 
   useEffect(() => {
     if (typeof id === "number") {
-      const source = axios.CancelToken.source();
+      const source = CancelToken.source();
       const fetchParkingLot = async () => {
         try {
-          await axios
-            .get(`${process.env.REACT_APP_GET_PARKINGLOTID}` + `${id}`, {
+          await get(`${process.env.REACT_APP_GET_PARKINGLOTID}` + `${id}`, {
               cancelToken: source.token,
             })
             .then((res) => {
@@ -22,7 +21,7 @@ const useParkingLotIdItem = (id) => {
             });
         } catch (error) {
           console.log("error", error)
-          if (axios.isCancel(error)) {
+          if (isCancel(error)) {
           } else {
             throw error;
           }
