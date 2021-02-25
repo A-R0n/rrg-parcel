@@ -3,12 +3,12 @@ import React from "react";
 
 export const CancelButtonOutside = (props) => {
   return (
-    <div className="cancel-btn-holder">
+    <div className="cancel-btn-holder" style={{ height: "50px" }}>
       <button
         className="cancel-btn"
         type="button"
         onClick={() => props.toggleThat()}
-        style={{fontSize: ".75em", height: "50px", marginLeft: "10px"}}
+        style={{ fontSize: ".75em", marginLeft: "10px" }}
       >
         Cancel
       </button>
