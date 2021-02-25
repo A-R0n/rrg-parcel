@@ -1,5 +1,7 @@
-.cancel-btn {
-    font-size: ".75em";
-    margin-left: "5px";
-    height: "6vh";
+.cancel-btn-holder {
+    margin-left: 10px;
+}
+
+.cancel-btn, .cancel-btn-holder {
+    height: 6vh;
 }
