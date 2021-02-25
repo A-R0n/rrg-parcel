@@ -30,7 +30,7 @@ function MyGoogleMap(props) {
       onLoad={props.onMapLoad}
     >
       <Suspense fallback={<p>directions fallback</p>}>
-        {<LazyLoadDirections geoCords={props.geoCords} />}
+        {<LazyLoadDirections async geoCords={props.geoCords} />}
       </Suspense>
     </GoogleMap>
   );

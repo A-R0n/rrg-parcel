@@ -70,7 +70,7 @@ export default function App() {
           <CancelButtonOutside toggleThat={toggleThat} />
         </div>
       </AnimateHeight>
-      <div className="GoogleMap" ref={mapRefTrick} async>
+      <div className="GoogleMap" ref={mapRefTrick}>
         <MyGoogleMap geoCords={geoCords} onMapLoad={onMapLoad} />
       </div>
       <footer>
