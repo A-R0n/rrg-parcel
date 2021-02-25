@@ -18,7 +18,7 @@ export default function App() {
 
   let toggle = () => {
     setHeightTitle(0);
-    setHeightHeader(35);
+    setHeightHeader(50);
     setIsCancelButtonClicked(false);
     mapRefTrick.current.style.opacity = ".6";
   };
