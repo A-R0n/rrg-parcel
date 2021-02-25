@@ -26,7 +26,7 @@ function MyGoogleMap(props) {
       zoom={11}
       center={miguels}
       onLoad={props.onMapLoad}
-      gestureHandling={"greedy"}
+      options={{gestureHandling: "greedy"}}
     >
       <Directions geoCords={ props.geoCords}/>
     </GoogleMap>
