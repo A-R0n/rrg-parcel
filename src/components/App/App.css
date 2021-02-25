@@ -1,10 +1,4 @@
-@font-face {
-  font-family: 'Pacifico';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
-  font-display: swap;
-}
+
 
 .header-container {
   background: rgb(199, 238, 194);
@@ -17,10 +11,8 @@
 .header-title {
   height: 35px;
   transition: height .5s ease;
-  /* background: yellow; */
   display: flex;
   align-items: center;
-  /* margin-top: 0px; */
 }
 
 #title-rrg {
@@ -32,8 +24,4 @@
 .header-search {
   display: flex;
   overflow: hidden;
-}
-
-.header-input-search {
-  background: pink;
 }
