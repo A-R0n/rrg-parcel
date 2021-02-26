@@ -8,7 +8,7 @@ import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 
 export default function App() {
   const [geoCords, setGeoCords] = useState([]);
-  let [heightHeader, setHeightHeader] = useState(100);
+  let [heightHeader, setHeightHeader] = useState(120);
   let [heightTitle, setHeightTitle] = useState(40);
   const [isCancelButtonClicked, setIsCancelButtonClicked] = useState(false);
 
@@ -17,13 +17,13 @@ export default function App() {
 
   let toggle = () => {
     setHeightTitle(0);
-    setHeightHeader(50);
+    setHeightHeader(70);
     setIsCancelButtonClicked(false);
     mapRefTrick.current.style.opacity = ".6";
   };
 
   let toggleThat = () => {
-    setHeightHeader(100);
+    setHeightHeader(120);
     setHeightTitle(40);
     setIsCancelButtonClicked(true);
     mapRefTrick.current.style.opacity = "1";
