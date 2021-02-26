@@ -2,7 +2,8 @@ import React from 'react';
 
 export default function MagnifyingGlass() {
     return (
-      <svg
+        <svg
+            id="mag-glass"
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"

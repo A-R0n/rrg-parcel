@@ -2,8 +2,10 @@ import React, { useRef, useState, useCallback } from "react";
 import "./App.css";
 import AnimateHeight from "react-animate-height";
 import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
-import { CancelButtonOutside } from "../CancelButtonOutside/CancelButtonOutside";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
+import DeleteTextButton from '../DeleteTextButton/DeleteTextButton';
+import { CancelButtonOutside } from "../CancelButtonOutside/CancelButtonOutside";
+
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 
 export default function App() {
@@ -66,6 +68,7 @@ export default function App() {
               panTo={panTo}
               isCancelButtonClicked={isCancelButtonClicked}
             />
+            <DeleteTextButton />
           </div>
 
           <CancelButtonOutside toggleThat={toggleThat} />
