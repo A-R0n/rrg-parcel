@@ -7,7 +7,7 @@ export const CancelButtonOutside = (props) => {
         className="cancel-btn"
         type="button"
         onTouchStart={() => props.toggleThat()}
-        style={{marginLeft: "15px", height: "6vh", fontSize: "1em"}}
+        style={{marginLeft: "15px", height: "4.5vh"}}
       >
         Cancel
       </button>
