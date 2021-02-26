@@ -25,7 +25,6 @@
 .header-input-search {
   position: relative;
   background: grey;
-  overflow: hidden;
 }
 
 footer {
@@ -41,5 +40,5 @@ footer {
 
 .cancel-btn {
   border: 1px solid grey;
-  width: 17.5vw;
+  width: 15vw;
 }
