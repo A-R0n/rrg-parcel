@@ -86,7 +86,7 @@ export const SearchInputBox = (props) => {
           </ComboboxPopover>
         </Combobox>
         {routeName.length > 0 ? (
-          <div id="tester" onClick={() => deleteRouteName()}>
+          <div id="tester" onTouchStart={() => deleteRouteName()}>
             <DeleteTextButton />
           </div>
         ) : null}
