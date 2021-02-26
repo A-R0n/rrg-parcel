@@ -25,6 +25,7 @@
 .header-input-search {
   position: relative;
   background: grey;
+  overflow: hidden;
 }
 
 footer {
