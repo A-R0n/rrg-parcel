@@ -1,5 +1,4 @@
 import React from "react";
-import "./CBO.css";
 
 export const CancelButtonOutside = (props) => {
   return (
