@@ -1,7 +1,10 @@
-.cancel-btn-holder {
+@media only screen and (max-width: 420px) {
+  .cancel-btn-holder {
     margin-left: 10px;
-}
+  }
 
-.cancel-btn, .cancel-btn-holder {
+  .cancel-btn,
+  .cancel-btn-holder {
     height: 6vh;
+  }
 }
