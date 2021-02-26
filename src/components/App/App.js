@@ -69,9 +69,9 @@ export default function App() {
           <CancelButtonOutside toggleThat={toggleThat} />
         </div>
       </AnimateHeight>
-      {/* <div className="GoogleMap" ref={mapRefTrick}>
+      <div className="GoogleMap" ref={mapRefTrick}>
         <MyGoogleMap geoCords={geoCords} onMapLoad={onMapLoad} />
-      </div> */}
+      </div>
       <footer>
         <p>© 2021 - Aaron Estes</p>
       </footer>
