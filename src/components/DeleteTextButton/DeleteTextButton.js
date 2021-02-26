@@ -7,8 +7,8 @@ export default function DeleteTextButton() {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
-        width="1.5em"
-        height="1.5em"
+        width="1.75em"
+        height="1.75em"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 24 24"
       >
