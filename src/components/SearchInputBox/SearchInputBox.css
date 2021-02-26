@@ -1,6 +1,6 @@
 .some-form {
-    background: pink;
-    position: relative;
+  background: pink;
+  position: relative;
 }
 
 svg#mag-glass {
@@ -10,19 +10,29 @@ svg#mag-glass {
 }
 
 .special-box {
-    width: 90vw;
-    height: 6vh;
-    font-size: 1.25em;
-    transition: width .75s;
-    text-indent: 30px;
+  width: 90vw;
+  height: 6vh;
+  font-size: 1.25em;
+  transition: width 0.75s;
+  text-indent: 30px;
 }
 
 .special-box-list {
-    font: 1.25em Arial;
+  font: 1.25em Arial;
 }
 
-svg#delete-text-btn {
+#tester {
+  background: red;
   position: absolute;
   right: 10px;
   top: 13px;
+  /* bottom: 0px; */
+  height: 6vh;
+  margin: 0;
+}
+
+svg#delete-text-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
