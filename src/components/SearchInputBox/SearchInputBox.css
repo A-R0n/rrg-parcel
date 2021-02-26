@@ -21,7 +21,7 @@ svg#mag-glass {
 }
 
 .cBox:active {
-    border: none;
+    border-style: none;
 }
 
 .special-box-list {
