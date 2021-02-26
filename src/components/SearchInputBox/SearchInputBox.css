@@ -1,5 +1,5 @@
 .special-box {
-    width: 94vw;
+    width: calc(100% - 1em);
     height: 6vh;
     font-size: 1.25em;
     transition: width .75s;

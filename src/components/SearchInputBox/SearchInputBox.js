@@ -20,10 +20,10 @@ export const SearchInputBox = (props) => {
 
   const comboBoxRef = useRef();
   const shrinkComboBox = () => {
-    comboBoxRef.current.style.width = "70vw";
+    comboBoxRef.current.style.width = "75vw";
   };
   const expandComboBox = () => {
-    comboBoxRef.current.style.width = "94vw";
+    comboBoxRef.current.style.width = "97.5vw";
   };
   const clickInInput = () => {
     shrinkComboBox();
