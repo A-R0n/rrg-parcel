@@ -1,5 +1,4 @@
 .some-form {
-  background: pink;
   position: relative;
 }
 
@@ -22,12 +21,9 @@ svg#mag-glass {
 }
 
 #tester {
-  background: red;
   position: absolute;
   right: 0px;
-  top: 5px;
+  top: 10px;
   bottom: 0px;
-  /* height: 6vh;
-  width: 50px; */
   margin: 0;
 }
