@@ -3,6 +3,7 @@
     height: 6vh;
     font-size: 1.25em;
     transition: width .75s;
+    text-indent: 45px;
 }
 
 .special-box-list {
