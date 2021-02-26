@@ -5,7 +5,7 @@
 svg#mag-glass {
   position: absolute;
   left: 10px;
-  top: 13px;
+  top: 15px;
 }
 
 .special-box {
@@ -16,14 +16,6 @@ svg#mag-glass {
   text-indent: 30px;
 }
 
-.cBox:not(:active) {
-    border: 2px solid black;
-}
-
-.cBox:active {
-    border-style: none;
-}
-
 .special-box-list {
   font: 1.25em Arial;
 }
@@ -31,6 +23,6 @@ svg#mag-glass {
 #tester {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 13px;
   bottom: 0px;
 }
