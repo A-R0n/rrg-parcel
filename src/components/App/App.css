@@ -1,5 +1,4 @@
 .header-container {
-  background: rgb(199, 238, 194);
   width: 100%;
   display: flex;
   align-items: center;
@@ -21,5 +20,15 @@
 
 .header-search {
   display: flex;
-  /* overflow: hidden; */
+}
+
+footer {
+  margin-left: 10px;
+}
+
+.cancel-btn-holder, .cancel-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content:center;
 }
