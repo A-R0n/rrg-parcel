@@ -22,6 +22,17 @@
   display: flex;
 }
 
+.header-input-search {
+  position: relative;
+  background: grey;
+}
+
+svg {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
 footer {
   margin-left: 10px;
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useState, useCallback } from "react";
 import "./App.css";
 import AnimateHeight from "react-animate-height";
-
+import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
 import { CancelButtonOutside } from "../CancelButtonOutside/CancelButtonOutside";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
@@ -61,11 +61,13 @@ export default function App() {
             type="text"
             onClick={() => toggle()}
           >
+            <MagnifyingGlass />
             <SearchInputBox
               panTo={panTo}
               isCancelButtonClicked={isCancelButtonClicked}
             />
           </div>
+
           <CancelButtonOutside toggleThat={toggleThat} />
         </div>
       </AnimateHeight>
