@@ -22,8 +22,7 @@ svg#mag-glass {
 
 #tester {
   position: absolute;
-  right: 0px;
+  right: 10px;
   top: 10px;
   bottom: 0px;
-  margin: 0;
 }
