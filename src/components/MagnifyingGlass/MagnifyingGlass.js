@@ -6,8 +6,8 @@ export default function MagnifyingGlass() {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         focusable="false"
-        width="1em"
-        height="1em"
+        width="1.5em"
+        height="1.5em"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 32 32"
       >
