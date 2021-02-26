@@ -24,15 +24,10 @@ svg#mag-glass {
 #tester {
   background: red;
   position: absolute;
-  right: 10px;
-  top: 10px;
-  /* bottom: 0px; */
-  height: 6vh;
+  right: 0px;
+  top: 5px;
+  bottom: 0px;
+  /* height: 6vh;
+  width: 50px; */
   margin: 0;
-}
-
-svg#delete-text-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
