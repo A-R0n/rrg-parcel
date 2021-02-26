@@ -13,6 +13,11 @@ import useRouteListItems from "../../hooks/useRouteListItems";
 
 import useParkingLotIdItem from "../../hooks/useParkingLotIdItem";
 
+import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
+
+import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
+
+
 export const SearchInputBox = (props) => {
   let [routeName, setRouteName] = React.useState("");
   let [listOfRouteItems, parkingLotId] = useRouteListItems(routeName);
@@ -51,9 +56,14 @@ export const SearchInputBox = (props) => {
     setRouteName(event.target.value);
   };
 
+  const deleteRouteName = () => {
+    setRouteName("");
+  }
+
   return (
     <div className="searched">
       <form className="some-form">
+        <MagnifyingGlass />
         <Combobox
           className="cBox"
           onSelect={(e) => {
@@ -70,11 +80,16 @@ export const SearchInputBox = (props) => {
             ref={comboBoxRef}
           />
           <ComboboxPopover>
-            <ComboboxList className="special-box-list" >
+            <ComboboxList className="special-box-list">
               {listOfRouteItems}
             </ComboboxList>
           </ComboboxPopover>
         </Combobox>
+        {routeName.length > 0 ? (
+          <div onClick={() => deleteRouteName()}>
+            <DeleteTextButton />
+          </div>
+        ) : null}
       </form>
     </div>
   );

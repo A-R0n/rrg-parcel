@@ -1,3 +1,14 @@
+.some-form {
+    background: pink;
+    position: relative;
+}
+
+svg#mag-glass {
+  position: absolute;
+  left: 10px;
+  top: 13px;
+}
+
 .special-box {
     width: 90vw;
     height: 6vh;
@@ -8,4 +19,10 @@
 
 .special-box-list {
     font: 1.25em Arial;
+}
+
+svg#delete-text-btn {
+  position: absolute;
+  right: 10px;
+  top: 13px;
 }
