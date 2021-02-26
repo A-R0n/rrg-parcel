@@ -62,7 +62,7 @@ export const SearchInputBox = (props) => {
         >
           <ComboboxInput
             className="special-box"
-            type="search"
+            // type="search"
             value={routeName}
             onChange={handleUserTyping}
             placeholder="Search for a route"
