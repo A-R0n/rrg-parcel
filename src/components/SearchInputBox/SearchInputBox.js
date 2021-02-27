@@ -14,6 +14,7 @@ import useRouteListItems from "../../hooks/useRouteListItems";
 import useParkingLotIdItem from "../../hooks/useParkingLotIdItem";
 
 import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
+import Mountain from "../Mountain/Mountain";
 
 import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
 
@@ -63,7 +64,8 @@ export const SearchInputBox = (props) => {
   return (
     <div className="searched">
       <form className="some-form">
-        <MagnifyingGlass />
+        {/* <MagnifyingGlass /> */}
+        <Mountain />
         <Combobox
           className="cBox"
           onSelect={(e) => {

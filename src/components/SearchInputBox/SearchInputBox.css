@@ -8,6 +8,13 @@ svg#mag-glass {
   top: 15px;
 }
 
+svg#mountain {
+  position: absolute;
+    left: 10px;
+  top: 15px;
+  /* background: red; */
+}
+
 .special-box {
   width: 90vw;
   height: 6vh;
