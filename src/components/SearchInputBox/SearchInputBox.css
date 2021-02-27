@@ -10,7 +10,7 @@ svg#mag-glass {
 
 svg#mountain {
   position: absolute;
-    left: 7px;
+  left: 7px;
   top: 5px;
   /* background: red; */
 }
@@ -21,7 +21,9 @@ svg#mountain {
   font-size: 1.25em;
   transition: width 0.75s;
   text-indent: 40px;
-  text-overflow: ellipsis; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .special-box-list {
