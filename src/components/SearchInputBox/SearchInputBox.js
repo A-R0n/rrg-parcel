@@ -41,14 +41,17 @@ export const SearchInputBox = (props) => {
   //   }
   // }, [props.isCancelButtonClicked]);
 
+
   useEffect(() => {
+      console.log("routeName split at , : ", routeName.split(",").shift());
+
     if (isResponse200) {
       parkingLotData.map((parkingLot) => {
         let geoCoordsFormatted = parkingLot.geocoords.split(",");
-        props.panTo(
-          parseFloat(geoCoordsFormatted[0]),
-          parseFloat(geoCoordsFormatted[1])
-        );
+        // props.panTo(
+        //   parseFloat(geoCoordsFormatted[0]),
+        //   parseFloat(geoCoordsFormatted[1])
+        // );
       });
     }
   }, [parkingLotData, isResponse200]);
@@ -69,7 +72,7 @@ export const SearchInputBox = (props) => {
         <Combobox
           className="cBox"
           onSelect={(e) => {
-            setRouteName(e);
+            setRouteName(e.split(",").shift());
           }}
         >
           <ComboboxInput

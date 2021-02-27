@@ -31,10 +31,10 @@ export default function Mountain() {
         <g
           fill="none"
           stroke="#000"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-miterlimit="10"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit="10"
+          strokeWidth="2"
         >
           <path d="M60 55l-6.6-6.9L50 39" />
           <path d="M19.4 33.1L18 37l-2 12l-4 6" />

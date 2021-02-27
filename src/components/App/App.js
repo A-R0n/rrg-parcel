@@ -10,7 +10,6 @@ export default function App() {
   const [geoCords, setGeoCords] = useState([]);
   let [heightHeader, setHeightHeader] = useState(120);
   let [heightTitle, setHeightTitle] = useState(40);
-  const [isCancelButtonClicked, setIsCancelButtonClicked] = useState(false);
 
   const mapRef = useRef();
   const mapRefTrick = useRef();
@@ -18,16 +17,16 @@ export default function App() {
   let toggle = () => {
     setHeightTitle(0);
     setHeightHeader(70);
-    setIsCancelButtonClicked(false);
+    // setIsCancelButtonClicked(false);
     mapRefTrick.current.style.opacity = ".6";
   };
 
-  let toggleThat = () => {
-    setHeightHeader(120);
-    setHeightTitle(40);
-    setIsCancelButtonClicked(true);
-    mapRefTrick.current.style.opacity = "1";
-  };
+  // let toggleThat = () => {
+  //   setHeightHeader(120);
+  //   setHeightTitle(40);
+  //   setIsCancelButtonClicked(true);
+  //   mapRefTrick.current.style.opacity = "1";
+  // };
 
   const onMapLoad = useCallback((map) => {
     mapRef.current = map;
@@ -63,7 +62,6 @@ export default function App() {
           >
             <SearchInputBox
               panTo={panTo}
-              isCancelButtonClicked={isCancelButtonClicked}
             />
           </div>
 

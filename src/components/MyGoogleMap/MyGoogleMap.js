@@ -28,7 +28,7 @@ function MyGoogleMap(props) {
       onLoad={props.onMapLoad}
       options={{gestureHandling: "greedy"}}
     >
-      <Directions geoCords={ props.geoCords}/>
+      {/* <Directions geoCords={ props.geoCords}/> */}
     </GoogleMap>
   );
 }
