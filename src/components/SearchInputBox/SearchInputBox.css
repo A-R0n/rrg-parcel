@@ -21,7 +21,7 @@ svg#mountain {
   font-size: 1.25em;
   transition: width 0.75s;
   text-indent: 40px;
-  text-align: justify;
+  text-overflow: ellipsis; 
 }
 
 .special-box-list {
