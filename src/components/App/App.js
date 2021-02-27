@@ -67,7 +67,7 @@ export default function App() {
             />
           </div>
 
-          <CancelButtonOutside toggleThat={toggleThat} />
+          {/* <CancelButtonOutside toggleThat={toggleThat} /> */}
         </div>
       </AnimateHeight>
       <div className="GoogleMap" ref={mapRefTrick}>

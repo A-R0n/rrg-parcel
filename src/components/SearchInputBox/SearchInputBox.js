@@ -13,7 +13,7 @@ import useRouteListItems from "../../hooks/useRouteListItems";
 
 import useParkingLotIdItem from "../../hooks/useParkingLotIdItem";
 
-import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
+// import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
 import Mountain from "../Mountain/Mountain";
 
 import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
@@ -24,22 +24,22 @@ export const SearchInputBox = (props) => {
   let [listOfRouteItems, parkingLotId] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
 
-  const comboBoxRef = useRef();
-  const shrinkComboBox = () => {
-    comboBoxRef.current.style.width = "75vw";
-  };
-  const expandComboBox = () => {
-    comboBoxRef.current.style.width = "90vw";
-  };
-  const clickInInput = () => {
-    shrinkComboBox();
-  };
+  // const comboBoxRef = useRef();
+  // const shrinkComboBox = () => {
+  //   comboBoxRef.current.style.width = "75vw";
+  // };
+  // const expandComboBox = () => {
+  //   comboBoxRef.current.style.width = "90vw";
+  // };
+  // const clickInInput = () => {
+  //   shrinkComboBox();
+  // };
 
-  useEffect(() => {
-    if (props.isCancelButtonClicked === true) {
-      expandComboBox();
-    }
-  }, [props.isCancelButtonClicked]);
+  // useEffect(() => {
+  //   if (props.isCancelButtonClicked === true) {
+  //     expandComboBox();
+  //   }
+  // }, [props.isCancelButtonClicked]);
 
   useEffect(() => {
     if (isResponse200) {
@@ -78,8 +78,8 @@ export const SearchInputBox = (props) => {
             value={routeName}
             onChange={handleUserTyping}
             placeholder="Search for a route"
-            onClick={clickInInput}
-            ref={comboBoxRef}
+            // onClick={clickInInput}
+            // ref={comboBoxRef}
           />
           <ComboboxPopover>
             <ComboboxList className="special-box-list">
