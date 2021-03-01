@@ -43,7 +43,7 @@ svg#mountain {
 }
 
 .special-box[value] {
-  size: 20;
+  width: 50%;
 }
 
 .special-box-list {
