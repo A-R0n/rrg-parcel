@@ -1,5 +1,8 @@
 .some-form {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 svg#mag-glass {
@@ -15,15 +18,33 @@ svg#mountain {
   /* background: red; */
 }
 
+.cBox {
+  margin: 0;
+  display: flex;
+    align-items: flex-end;
+  justify-content: flex-end;
+  margin: 0;
+  /* margin-left: 40px; */
+}
+
 .special-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
   width: 90vw;
   height: 6vh;
   font-size: 1.25em;
   transition: width 0.75s;
+  /* padding-left: 40px; */
   text-indent: 40px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.special-box[value] {
+  color: red;
+  width: 50vw;
 }
 
 .special-box-list {
