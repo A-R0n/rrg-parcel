@@ -42,10 +42,6 @@ svg#mountain {
   text-overflow: ellipsis;
 }
 
-.special-box[value] {
-  max-width: 5ch;
-}
-
 .special-box-list {
   font: 1.25em Arial;
 }

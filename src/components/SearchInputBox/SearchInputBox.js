@@ -64,7 +64,6 @@ export const SearchInputBox = (props) => {
             value={routeName}
             onChange={handleUserTyping}
             placeholder="Search for a route"
-            maxLength="5"
             // onClick={clickInInput}
             // ref={comboBoxRef}
           />
