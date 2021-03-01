@@ -57,7 +57,7 @@ export const SearchInputBox = (props) => {
           className="cBox"
           onSelect={(e) => {
             routeWithoutGrade = e.split(",").shift();
-            if (routeWithoutGrade.length < 25) {
+            if (routeWithoutGrade.length < 28) {
               setRouteName(routeWithoutGrade);
             } else {
               setRouteName(`${routeWithoutGrade.substring(0, 25)}` + "...");
