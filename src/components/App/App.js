@@ -57,7 +57,7 @@ export default function App() {
         <div className="header-search">
           <div
             className="header-input-search"
-            type="text"
+            // type="text"
             onClick={() => toggle()}
           >
             <SearchInputBox

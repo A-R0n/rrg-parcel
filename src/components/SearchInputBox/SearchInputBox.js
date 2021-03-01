@@ -60,7 +60,7 @@ export const SearchInputBox = (props) => {
             if (routeWithoutGrade.length < 15) {
               setRouteName(routeWithoutGrade);
             } else {
-              setRouteName(routeWithoutGrade.substring(0, 15));
+              setRouteName(`${routeWithoutGrade.substring(0, 20)}` + "...");
             }
           }}
         >
