@@ -24,23 +24,6 @@ export const SearchInputBox = (props) => {
   let [listOfRouteItems, parkingLotId] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
 
-  // const comboBoxRef = useRef();
-  // const shrinkComboBox = () => {
-  //   comboBoxRef.current.style.width = "75vw";
-  // };
-  // const expandComboBox = () => {
-  //   comboBoxRef.current.style.width = "90vw";
-  // };
-  // const clickInInput = () => {
-  //   shrinkComboBox();
-  // };
-
-  // useEffect(() => {
-  //   if (props.isCancelButtonClicked === true) {
-  //     expandComboBox();
-  //   }
-  // }, [props.isCancelButtonClicked]);
-
 
   useEffect(() => {
       console.log("routeName split at , : ", routeName.split(",").shift());
@@ -81,6 +64,7 @@ export const SearchInputBox = (props) => {
             value={routeName}
             onChange={handleUserTyping}
             placeholder="Search for a route"
+            maxLength="20"
             // onClick={clickInInput}
             // ref={comboBoxRef}
           />

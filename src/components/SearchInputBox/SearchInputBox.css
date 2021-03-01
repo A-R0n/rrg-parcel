@@ -24,8 +24,6 @@ svg#mountain {
     align-items: flex-end;
   justify-content: flex-end;
   margin: 0;
-    width: 90vw;
-
   /* margin-left: 40px; */
 }
 
@@ -33,6 +31,7 @@ svg#mountain {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  width: 90vw;
   height: 6vh;
   font-size: 1.25em;
   transition: width 0.75s;
@@ -41,10 +40,6 @@ svg#mountain {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.special-box[value] {
-  width: 60vw;
 }
 
 .special-box-list {
