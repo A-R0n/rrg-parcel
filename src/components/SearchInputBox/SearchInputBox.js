@@ -18,15 +18,13 @@ import Mountain from "../Mountain/Mountain";
 
 import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
 
-
 export const SearchInputBox = (props) => {
   let [routeName, setRouteName] = React.useState("");
   let [listOfRouteItems, parkingLotId] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
 
-
   useEffect(() => {
-      console.log("routeName split at , : ", routeName.split(",").shift());
+    console.log("routeName split at , : ", routeName.split(",").shift());
 
     if (isResponse200) {
       parkingLotData.map((parkingLot) => {
@@ -45,7 +43,10 @@ export const SearchInputBox = (props) => {
 
   const deleteRouteName = () => {
     setRouteName("");
-  }
+  };
+
+  let routeWithoutGrade = "";
+  let routeWithoutGradeMax15Char = "";
 
   return (
     <div className="searched">
@@ -55,7 +56,12 @@ export const SearchInputBox = (props) => {
         <Combobox
           className="cBox"
           onSelect={(e) => {
-            setRouteName(e.split(",").shift());
+            routeWithoutGrade = e.split(",").shift();
+            if (routeWithoutGrade.length < 15) {
+              setRouteName(routeWithoutGrade);
+            } else {
+              setRouteName(routeWithoutGrade.substring(0, 15));
+            }
           }}
         >
           <ComboboxInput
