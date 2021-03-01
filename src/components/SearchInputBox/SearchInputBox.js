@@ -46,7 +46,6 @@ export const SearchInputBox = (props) => {
   };
 
   let routeWithoutGrade = "";
-  let routeWithoutGradeMax15Char = "";
 
   return (
     <div className="searched">
@@ -57,8 +56,8 @@ export const SearchInputBox = (props) => {
           className="cBox"
           onSelect={(e) => {
             routeWithoutGrade = e.split(",").shift();
-            if (routeWithoutGrade.length < 28) {
-              setRouteName(routeWithoutGrade);
+            if (routeName.length < 21) {
+              setRouteName(e.target.value);
             } else {
               setRouteName(`${routeWithoutGrade.substring(0, 25)}` + "...");
             }
