@@ -44,7 +44,7 @@ export default function App() {
         className="header-container"
         duration={750}
         height={heightHeader}
-        style={{ flexShrink: 0, marginLeft: "10px" }}
+        style={{ flexShrink: 0}}
       >
         <AnimateHeight
           className="header-title"
