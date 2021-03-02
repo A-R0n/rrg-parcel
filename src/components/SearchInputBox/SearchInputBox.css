@@ -4,8 +4,6 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-    /* width: 90vw; */
-background: gold;
 }
 
 #cBox {
@@ -21,14 +19,11 @@ svg#google-marker {
   top: 9px;
   width: 30px;
   height: 30px;
-  /* background: red; */
-  /* background: red; */
 }
 
 
 
 #special-box {
-  /* margin: 0; */
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -36,7 +31,6 @@ svg#google-marker {
   height: 6vh;
   font-size: 1.25em;
   transition: width 0.75s;
-  /* padding-left: 40px; */
   text-indent: 35px;
   white-space: nowrap;
   overflow: hidden;
