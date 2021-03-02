@@ -84,7 +84,7 @@ export const SearchInputBox = (props) => {
 
   const determineWidthOfText = (name) => {
 
-    var shortenedName = Math.floor(name.length * 0.80);
+    var shortenedName = Math.floor(name.length * 0.75);
     var slicedName = name.slice(0, shortenedName) + "...";
 
     console.log("ratio:", widthOfText.current / widthOfCBox);
