@@ -1,6 +1,6 @@
 import React, {memo } from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import { Directions } from "../Directions/Directions";
+// import { Directions } from "../Directions/Directions";
 
 function MyGoogleMap(props) {
   const { isLoaded, loadError } = useLoadScript({

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect} from "react";
 import {
   Combobox,
   ComboboxInput,
@@ -13,8 +13,6 @@ import useRouteListItems from "../../hooks/useRouteListItems";
 
 import useParkingLotIdItem from "../../hooks/useParkingLotIdItem";
 
-// import MagnifyingGlass from "../MagnifyingGlass/MagnifyingGlass";
-// import Mountain from "../Mountain/Mountain";
 import GoogleMarker from '../GoogleMarker/GoogleMarker';
 
 import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
@@ -43,7 +41,6 @@ export const SearchInputBox = (props) => {
   ] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
   let [widthOfCBox, setWidthOfCBox] = React.useState(0);
-  // let [widthOfText, setWidthOfText] = React.useState(0);
 
   let widthOfText = React.useRef();
 
@@ -72,9 +69,7 @@ export const SearchInputBox = (props) => {
     var cBox = document.getElementById("special-box");
     var cbr = cBox.getBoundingClientRect();
     cbr.font = font2(cBox);
-    console.log("cbr: ya", cbr);
     var widthOfCBo = cbr.width;
-    console.log("width of cbo:", widthOfCBo);
     setWidthOfCBox(widthOfCBo);
   };
 
@@ -82,12 +77,9 @@ export const SearchInputBox = (props) => {
     determineWidthOfComboBox();
   }, []);
 
-  const determineWidthOfText = (name) => {
-
+  const assignValue = (name) => {
     var shortenedName = Math.floor(name.length * 0.75);
     var slicedName = name.slice(0, shortenedName) + "...";
-
-    console.log("ratio:", widthOfText.current / widthOfCBox);
       
     if (widthOfText.current / widthOfCBox < 0.75) {
       setRouteName(name);
@@ -96,40 +88,31 @@ export const SearchInputBox = (props) => {
     }
   };
 
-  const doThisFirst = (name) => {
+  const determineWidthOfText = (name) => {
     var canv = document.createElement("canvas");
     var ctx2 = canv.getContext("2d");
     ctx2.font = "normal normal 400 20px Arial ";
-    console.log("name: ", name);
     var txtWidth2 = ctx2.measureText(name).width;
-    console.log("text width 2: ", txtWidth2);
-
-    // setWidthOfText(txtWidth2);
-
     widthOfText.current = txtWidth2;
   }
 
   return (
     <div className="searched">
       <form className="some-form">
-        {/* <MagnifyingGlass /> */}
-        {/* <Mountain /> */}
         <GoogleMarker />
         <Combobox
           id="cBox"
           onSelect={async (e) => {
-            await doThisFirst(e);
             await determineWidthOfText(e);
+            await assignValue(e);
           }}
         >
           <ComboboxInput
             id="special-box"
             autoComplete="off"
-            // type="search"
             value={routeName}
             onChange={handleUserTyping}
             placeholder="Search for a route"
-            // onClick={clickInInput}
             // ref={comboBoxRef}
           />
           <ComboboxPopover>
