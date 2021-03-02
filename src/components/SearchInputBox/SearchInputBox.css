@@ -17,7 +17,7 @@ background: gold;
 
 svg#google-marker {
   position: absolute;
-  left: 23px;
+  left: 19px;
   top: 13px;
   width: 25px;
   height: 25px;
@@ -37,7 +37,7 @@ svg#google-marker {
   font-size: 1.25em;
   transition: width 0.75s;
   /* padding-left: 40px; */
-  text-indent: 40px;
+  text-indent: 35px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
