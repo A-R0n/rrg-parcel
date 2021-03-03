@@ -5,6 +5,7 @@ import { GoogleMap, useLoadScript } from "@react-google-maps/api";
 function MyGoogleMap(props) {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    region: "1017894",
   });
 
   const mapContainerStyle = {
