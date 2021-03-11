@@ -119,50 +119,45 @@ export const SearchInputBox = (props) => {
   };
 
   const clickInComboBox = () => {
-    document.getElementById("cBox").focus();
     props.setDoesUserWantToSearch(true);
   };
-
-  const doThis = () => {
-    document.getElementById("cBox").blur();
-  }
 
   return (
     <div className="searched">
       {/* <form className="some-form"> */}
-        <GoogleMarker />
-        <Combobox
-          id="cBox"
-          onClick={() => clickInComboBox()}
+      <GoogleMarker />
+      <Combobox
+        id="cBox"
+        onClick={() => clickInComboBox()}
         onSelect={async (e) => {
-            await doThis()
-            await determineWidthOfText(e);
-            await assignValue(e);
-            await getRouteImgGCP(e);
-            await getSomeData(e);
-          }}
-        >
-          <ComboboxInput
-            id="special-box"
-            autoComplete="off"
-            value={routeName}
-            onChange={handleUserTyping}
-            placeholder="Search for a route"
-            // ref={comboBoxRef}
-          />
-          <ComboboxPopover>
-            {props.doesUserWantToSearch && (
-              <ComboboxList className="special-box-list">
-                {routeItemFromList}
-              </ComboboxList>
-            )}
-          </ComboboxPopover>
-        </Combobox>
-        {routeName.length > 0 ? (
-          <div id="del-text-btn" onTouchStart={() => deleteRouteName()}>
-            <DeleteTextButton />
-          </div>
-        ) : null}
+          await determineWidthOfText(e);
+          await assignValue(e);
+          await getRouteImgGCP(e);
+          await getSomeData(e);
+        }}
+      >
+        <ComboboxInput
+          id="special-box"
+          inputMode="search"
+          autoComplete="off"
+          value={routeName}
+          onChange={handleUserTyping}
+          placeholder="Search for a route"
+          // ref={comboBoxRef}
+        />
+        <ComboboxPopover>
+          {props.doesUserWantToSearch && (
+            <ComboboxList className="special-box-list">
+              {routeItemFromList}
+            </ComboboxList>
+          )}
+        </ComboboxPopover>
+      </Combobox>
+      {routeName.length > 0 ? (
+        <div id="del-text-btn" onTouchStart={() => deleteRouteName()}>
+          <DeleteTextButton />
+        </div>
+      ) : null}
       {/* </form> */}
     </div>
   );
