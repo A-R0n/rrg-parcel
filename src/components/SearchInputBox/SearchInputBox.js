@@ -94,13 +94,13 @@ export const SearchInputBox = (props) => {
 
   const getSomeData = (name) => {
     let routeNameWithoutGrade = name.split(", 5.").shift();
-     let newThing = routeNameWithoutGrade.charAt(0).toUpperCase() + routeNameWithoutGrade.slice(1)
-    axios
-      .get(`http://localhost:8888/api/routes/${newThing}`)
-      .then((res) => {
-        console.log("res dit: ", res.data);
-        setMyShit(res.data);
-      });
+    let newThing =
+      routeNameWithoutGrade.charAt(0).toUpperCase() +
+      routeNameWithoutGrade.slice(1);
+    axios.get(`http://localhost:8888/api/routes/${newThing}`).then((res) => {
+      console.log("res dit: ", res.data);
+      setMyShit(res.data);
+    });
   };
 
   const determineWidthOfText = (name) => {
@@ -118,7 +118,16 @@ export const SearchInputBox = (props) => {
     props.prepareRouteName(routeNameWithoutGrade);
   };
 
+  const enableKeyboardMobile = () => {
+    document.getElementById("special-box").readonly = false;
+  };
+
+  const disableKeyboardMobile = () => {
+    document.getElementById("special-box").readonly = true;
+  };
+
   const clickInComboBox = () => {
+    enableKeyboardMobile();
     props.setDoesUserWantToSearch(true);
   };
 
@@ -130,6 +139,7 @@ export const SearchInputBox = (props) => {
           id="cBox"
           onClick={() => clickInComboBox()}
           onSelect={async (e) => {
+            await disableKeyboardMobile();
             await determineWidthOfText(e);
             await assignValue(e);
             await getRouteImgGCP(e);
