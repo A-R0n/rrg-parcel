@@ -6,9 +6,9 @@ import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
 
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
-// import DirectionsButton from "../DirectionsButton/DirectionsButton";
+import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
-// import Drawer from "react-bottom-drawer";
+import Drawer from "react-bottom-drawer";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
@@ -138,18 +138,14 @@ export default function App() {
             smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           />
         )}
-        {/* <Drawer isVisible={isDrawerVisible} onClose={onDrawerClose}>
+        <Drawer isVisible={isDrawerVisible} onClose={onDrawerClose}>
           <h3>{routeName}</h3>
           <p>This route is really awesome</p>
           <DirectionsButton
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           />
-        </Drawer> */}
+        </Drawer>
       </div>
-
-      {/* <footer>
-        <p>© 2021 - Aaron Estes</p>
-      </footer> */}
     </main>
   );
 }
