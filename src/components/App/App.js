@@ -136,7 +136,12 @@ export default function App() {
             smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           />
         )} */}
-        <Drawer isVisible={isDrawerVisible} onClose={onDrawerClose}>
+        <Drawer
+          isVisible={isDrawerVisible}
+          onClose={onDrawerClose}
+          duration={250}
+          hideScrollbars={true}
+        >
           <h3>{routeName}</h3>
           <p>This route is really awesome</p>
           {/* <DirectionsButton
