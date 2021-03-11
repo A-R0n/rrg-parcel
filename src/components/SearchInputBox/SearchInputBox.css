@@ -1,5 +1,7 @@
-.some-form {
-  position: relative;
+
+
+.searched {
+    position: relative;
   display: flex;
   justify-content: center;
   align-items: center;

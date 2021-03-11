@@ -124,7 +124,7 @@ export const SearchInputBox = (props) => {
 
   return (
     <div className="searched">
-      <form className="some-form">
+      {/* <form className="some-form"> */}
         <GoogleMarker />
         <Combobox
           id="cBox"
@@ -157,7 +157,7 @@ export const SearchInputBox = (props) => {
             <DeleteTextButton />
           </div>
         ) : null}
-      </form>
+      {/* </form> */}
     </div>
   );
 };
