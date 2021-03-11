@@ -119,12 +119,12 @@ export const SearchInputBox = (props) => {
   };
 
   const clickInComboBox = () => {
-    document.getElementById("special-box").focus();
+    document.getElementById("cBox").focus();
     props.setDoesUserWantToSearch(true);
   };
 
   const doThis = () => {
-    document.getElementById("special-box").blur();
+    document.getElementById("cBox").blur();
   }
 
   return (
