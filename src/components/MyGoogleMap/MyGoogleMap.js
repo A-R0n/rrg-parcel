@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-import { Directions } from "../DirectionsForParking/DirectionsForParking";
+import { DirectionsForParking } from "../DirectionsForParking/DirectionsForParking";
 import { MyStreetView } from "../MyStreetView/MyStreetView";
 
 import "./MyGoogleMap.css";
