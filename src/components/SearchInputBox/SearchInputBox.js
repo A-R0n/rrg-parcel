@@ -122,6 +122,10 @@ export const SearchInputBox = (props) => {
     props.setDoesUserWantToSearch(true);
   };
 
+  const doThis = () => {
+    document.getElementById("special-box").blur()
+  }
+
   return (
     <div className="searched">
       {/* <form className="some-form"> */}
@@ -130,6 +134,7 @@ export const SearchInputBox = (props) => {
         id="cBox"
         onClick={() => clickInComboBox()}
         onSelect={async (e) => {
+          await doThis()
           await determineWidthOfText(e);
           await assignValue(e);
           await getRouteImgGCP(e);
@@ -138,7 +143,6 @@ export const SearchInputBox = (props) => {
       >
         <ComboboxInput
           id="special-box"
-          type="search"
           autoComplete="off"
           value={routeName}
           onChange={handleUserTyping}
