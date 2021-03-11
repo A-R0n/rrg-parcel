@@ -1,7 +1,8 @@
 import React from "react";
 import { DirectionsService, DirectionsRenderer } from "@react-google-maps/api";
 
-export const Directions = (fields) => {
+export const DirectionsForParking = (fields) => {
+  console.log("fields: ", fields);
   const [isRouteSelected, setIsRouteSelected] = React.useState(false);
   const [response, setResponse] = React.useState(null);
 
@@ -19,6 +20,7 @@ export const Directions = (fields) => {
   React.useEffect(() => {
     setIsRouteSelected(true);
     setResponse(null);
+    console.log("response: ", response);
   }, [fields.geoCordsParking]);
 
   const miguels = {
@@ -26,10 +28,10 @@ export const Directions = (fields) => {
     lng: -83.6828,
   };
 
-  const hideBottomDrawer = (val) => {
-    console.log("attempting to not render bottom drawer")
-    fields.setShouldShowDirectionsBtnCb(false);
-  }
+  // const hideBottomDrawer = (val) => {
+  //   console.log("attempting to not render bottom drawer")
+  //   fields.setShouldShowDirectionsBtnCb(false);
+  // }
 
   return (
     <div>
@@ -41,11 +43,12 @@ export const Directions = (fields) => {
             travelMode: "DRIVING",
           }}
           callback={directionsCallback}
-          onLoad={(ds) => hideBottomDrawer(ds)}
+          // onLoad={(ds) => hideBottomDrawer(ds)}
           // optional
           onUnmount={(ds) => {
             console.log("DirectionsService unmount: ", ds);
             setIsRouteSelected(false);
+            // fields.setShouldShowDirectionsBtnCb(false);
           }}
         />
       )}

@@ -6,6 +6,7 @@ import { MyStreetView } from "../MyStreetView/MyStreetView";
 import "./MyGoogleMap.css";
 
 function MyGoogleMap(props) {
+  console.log("props should show directions: ", props.shouldShowDirections);
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     region: "1017894",
@@ -43,9 +44,7 @@ function MyGoogleMap(props) {
     }
   }, [props.geoCordsParking]);
 
-  const provideDirections = () => {
-    props.shouldShowDirections(true);
-  };
+
 
   if (loadError) return "Error Loading Maps";
   if (!isLoaded) return "Loading Maps";
@@ -60,7 +59,7 @@ function MyGoogleMap(props) {
         zoom={12}
         center={miguels}
         onLoad={onMapLoad}
-        options={{ gestureHandling: "greedy" }}
+        // options={{ gestureHandling: "greedy" }}
       >
         {props.geoCordsParking.length > 0 && (
           <Marker
@@ -73,13 +72,12 @@ function MyGoogleMap(props) {
             onLoad={onMarkerLoad}
           />
         )}
-        {props.isPanoImgExpand && (
+        {/* {props.isPanoImgExpand && (
           <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} />
-        )}
-        {!props.isPanoImgExpand && props.shouldShowDirections && (
+        )} */}
+        {props.shouldShowDirections && (
           <DirectionsForParking
             geoCordsParking={props.geoCordsParking}
-            setShouldShowDirectionsBtnCb={props.setShouldShowDirectionsBtnCb}
           />
         )}
       </GoogleMap>

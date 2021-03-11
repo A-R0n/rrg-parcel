@@ -122,9 +122,6 @@ export const SearchInputBox = (props) => {
     props.setDoesUserWantToSearch(true);
   };
 
-  const doThis = () => {
-    document.getElementById("special-box").blur()
-  }
 
   return (
     <div className="searched">
@@ -142,7 +139,6 @@ export const SearchInputBox = (props) => {
       >
         <ComboboxInput
           id="special-box"
-          onFocus={doThis}
           autoComplete="off"
           value={routeName}
           onChange={handleUserTyping}

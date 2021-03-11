@@ -10,9 +10,9 @@ export default function SmallRoutePanoImg(props) {
     lng: "-83.6828",
   };
 
-  const doThis = () => {
-    console.log("click");
-    props.clickSmallRoutePanoImg(true);
+  const doThis = (val) => {
+    console.log("click: ", props);
+    props.SmallRoutePanoImgClicked(val);
   };
 
   let name = props.routeName + ".jpg";

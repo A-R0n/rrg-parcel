@@ -3,7 +3,7 @@ import "./App.css";
 import AnimateHeight from "react-animate-height";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
-// import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
+import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
 import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
@@ -87,6 +87,10 @@ export default function App() {
     setIsDrawerVisible(false);
   }, []);
 
+    // const onDrawerShouldClose = React.useCallback(() => {
+    //   setIsDrawerVisible(false);
+    // }, []);
+
   const ssb = React.useCallback((val) => {
     setShouldShowSmallRoutePanoImg(val);
   }, []);
@@ -127,6 +131,7 @@ export default function App() {
           geoCordsFinishLine={geoCordsFinishLine}
           isPanoImgExpand={isPanoImgExpand}
           smallRoutePanoImgClicked={smallRoutePanoImgClicked}
+          setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           shouldShowDirections={shouldShowDirections}
           setShouldShowDirectionsBtnCb={setShouldShowDirectionsBtnCb}
         />
@@ -140,11 +145,12 @@ export default function App() {
           isVisible={isDrawerVisible}
           onClose={onDrawerClose}
           duration={250}
-          hideScrollbars={true}
+          hideScrollbars={false}
         >
           <h1>{routeName}</h1>
           <p>This route is really awesome</p>
           <DirectionsButton
+            onDrawerClose={onDrawerClose}
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           />
         </Drawer>
