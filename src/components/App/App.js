@@ -2,11 +2,9 @@ import React, { useRef, useState, useCallback } from "react";
 import "./App.css";
 import AnimateHeight from "react-animate-height";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
-// import { CancelButtonOutside } from "../CancelButtonOutside/CancelButtonOutside";
-
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
-import DirectionsButton from "../DirectionsButton/DirectionsButton";
+// import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
 
@@ -141,9 +139,9 @@ export default function App() {
         <Drawer isVisible={isDrawerVisible} onClose={onDrawerClose}>
           <h3>{routeName}</h3>
           <p>This route is really awesome</p>
-          <DirectionsButton
+          {/* <DirectionsButton
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
-          />
+          /> */}
         </Drawer>
       </div>
     </main>
