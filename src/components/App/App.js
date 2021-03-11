@@ -3,7 +3,7 @@ import "./App.css";
 import AnimateHeight from "react-animate-height";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
-import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
+// import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
 // import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
@@ -130,12 +130,12 @@ export default function App() {
           shouldShowDirections={shouldShowDirections}
           setShouldShowDirectionsBtnCb={setShouldShowDirectionsBtnCb}
         />
-        {shouldShowSmallRoutePanoImg && (
+        {/* {shouldShowSmallRoutePanoImg && (
           <SmallRoutePanoImg
             routeName={routeName}
             smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           />
-        )}
+        )} */}
         <Drawer isVisible={isDrawerVisible} onClose={onDrawerClose}>
           <h3>{routeName}</h3>
           <p>This route is really awesome</p>
