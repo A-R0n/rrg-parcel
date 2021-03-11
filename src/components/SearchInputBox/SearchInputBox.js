@@ -119,8 +119,13 @@ export const SearchInputBox = (props) => {
   };
 
   const clickInComboBox = () => {
+    document.getElementById("special-box").focus();
     props.setDoesUserWantToSearch(true);
   };
+
+  const doThis = () => {
+    document.getElementById("special-box").blur();
+  }
 
   return (
     <div className="searched">
@@ -129,7 +134,8 @@ export const SearchInputBox = (props) => {
         <Combobox
           id="cBox"
           onClick={() => clickInComboBox()}
-          onSelect={async (e) => {
+        onSelect={async (e) => {
+            await doThis()
             await determineWidthOfText(e);
             await assignValue(e);
             await getRouteImgGCP(e);
