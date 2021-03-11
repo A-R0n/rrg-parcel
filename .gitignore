@@ -14,3 +14,7 @@ yarn-error.log*
 /dist
 
 .cache
+
+/public/rrg-trails-*
+
+.DS_Store

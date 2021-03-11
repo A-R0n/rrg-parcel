@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {get, CancelToken, isCancel} from "axios";
 
 const useParkingLotIdItem = (id) => {
-  // console.log("id: ,", id);
+  console.log("id: ,", id);
   let [parkingLotData, setParkingLotData] = React.useState();
   const [isResponse200, setIsResponse200] = React.useState(false);
 

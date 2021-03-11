@@ -1,4 +1,4 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import {
   Combobox,
   ComboboxInput,
@@ -13,9 +13,10 @@ import useRouteListItems from "../../hooks/useRouteListItems";
 
 import useParkingLotIdItem from "../../hooks/useParkingLotIdItem";
 
-import GoogleMarker from '../GoogleMarker/GoogleMarker';
+import GoogleMarker from "../GoogleMarker/GoogleMarker";
 
 import DeleteTextButton from "../DeleteTextButton/DeleteTextButton";
+import axios from "axios";
 
 function font2(element) {
   var prop = [
@@ -35,24 +36,27 @@ function font2(element) {
 
 export const SearchInputBox = (props) => {
   let [routeName, setRouteName] = React.useState("");
-  let [
-    listOfRouteItems,
-    parkingLotId
-  ] = useRouteListItems(routeName);
+  let [routeItemFromList, parkingLotId] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
   let [widthOfCBox, setWidthOfCBox] = React.useState(0);
-
   let widthOfText = React.useRef();
+
+  const [myShit, setMyShit] = React.useState([]);
+
+  const [routeNameNoGrade, setRouteNameNoGrade] = React.useState("");
 
   useEffect(() => {
     if (isResponse200) {
       parkingLotData.map((parkingLot) => {
-        let geoCoordsFormatted = parkingLot.geocoords.split(",");
-        // props.panTo(
-        //   parseFloat(geoCoordsFormatted[0]),
-        //   parseFloat(geoCoordsFormatted[1])
-        // );
+        console.log("props panTo: ", props);
+        let geoCoordsFormattedParking = parkingLot.geocoords.split(",");
+        props.setSearchInputFieldForParking(
+          parseFloat(geoCoordsFormattedParking[0]),
+          parseFloat(geoCoordsFormattedParking[1])
+        );
       });
+      props.setShouldShowDirectionsButton(true);
+      props.setShouldShowPanoSmallRoutePanoImg(true);
     }
   }, [parkingLotData, isResponse200]);
 
@@ -63,7 +67,6 @@ export const SearchInputBox = (props) => {
   const deleteRouteName = () => {
     setRouteName("");
   };
-
 
   const determineWidthOfComboBox = () => {
     var cBox = document.getElementById("special-box");
@@ -80,12 +83,23 @@ export const SearchInputBox = (props) => {
   const assignValue = (name) => {
     var shortenedName = Math.floor(name.length * 0.75);
     var slicedName = name.slice(0, shortenedName) + "...";
-      
+    // setRouteName(name);
     if (widthOfText.current / widthOfCBox < 0.75) {
       setRouteName(name);
     } else {
       setRouteName(slicedName);
     }
+  };
+
+  const getSomeData = (name) => {
+    let routeNameWithoutGrade = name.split(", 5.").shift();
+     let newThing = routeNameWithoutGrade.charAt(0).toUpperCase() + routeNameWithoutGrade.slice(1)
+    axios
+      .get(`http://localhost:8888/api/routes/${newThing}`)
+      .then((res) => {
+        console.log("res dit: ", res.data);
+        setMyShit(res.data);
+      });
   };
 
   const determineWidthOfText = (name) => {
@@ -94,7 +108,18 @@ export const SearchInputBox = (props) => {
     ctx2.font = "normal normal 400 20px Arial ";
     var txtWidth2 = ctx2.measureText(name).width;
     widthOfText.current = txtWidth2;
-  }
+  };
+
+  const getRouteImgGCP = (name) => {
+    let routeNameWithoutGrade = name.split(", 5.").shift().toLowerCase();
+    setRouteNameNoGrade(routeNameWithoutGrade);
+    console.log("route name without grade: ", routeNameWithoutGrade);
+    props.prepareRouteName(routeNameWithoutGrade);
+  };
+
+  const clickInComboBox = () => {
+    props.setDoesUserWantToSearch(true);
+  };
 
   return (
     <div className="searched">
@@ -102,9 +127,12 @@ export const SearchInputBox = (props) => {
         <GoogleMarker />
         <Combobox
           id="cBox"
+          onClick={() => clickInComboBox()}
           onSelect={async (e) => {
             await determineWidthOfText(e);
             await assignValue(e);
+            await getRouteImgGCP(e);
+            await getSomeData(e);
           }}
         >
           <ComboboxInput
@@ -116,9 +144,11 @@ export const SearchInputBox = (props) => {
             // ref={comboBoxRef}
           />
           <ComboboxPopover>
-            <ComboboxList className="special-box-list">
-              {listOfRouteItems}
-            </ComboboxList>
+            {props.doesUserWantToSearch && (
+              <ComboboxList className="special-box-list">
+                {routeItemFromList}
+              </ComboboxList>
+            )}
           </ComboboxPopover>
         </Combobox>
         {routeName.length > 0 ? (

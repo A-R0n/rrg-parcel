@@ -1,0 +1,17 @@
+.pano-route-img-container {
+  width: 12.5vw;
+  height: 7.5vh;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: red;
+  z-index: 0;
+}
+
+#pano-route-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}

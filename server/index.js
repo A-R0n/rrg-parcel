@@ -12,13 +12,26 @@ const referrerPolicy = require("referrer-policy");
 
 const app = express();
 
-const { getParkingLotId, getAllBasicRouteInfo } = require("./controllers/main");
-const e = require("express");
+const { getParkingLotId, getAllBasicRouteInfo, getMoreData } = require("./controllers/main");
+// const e = require("express");
+
+
+var whitelist = ["http://localhost:1234"];
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
 
 const port = process.env.SERVER_PORT || 8887;
 
 app.use(json());
-app.use(cors());
 app.use(nosniff());
 
 app.use(
@@ -49,6 +62,9 @@ const dbConfig = {
 
 app.use(referrerPolicy({ policy: "same-origin" }));
 
+
+
+
 massive(dbConfig)
   .then((dbInstance) => {
     // console.log(dbInstance);
@@ -57,10 +73,11 @@ massive(dbConfig)
   .catch((err) => console.log(err));
 
 app.get(`/api/routes`, getAllBasicRouteInfo);
+app.get(`/api/routes/:routename`, getMoreData);
 app.get(`/api/parkinglot/:parkinglotid`, getParkingLotId);
 
 app.use(express.static(`${__dirname}/../build`));
 
 app.listen(port, () => {
-  console.log(`Nothin can stop me im All the wayyyy upppp parcel: ${port}`);
+  console.log(`CORS-enabled web server listening on port: ${port}`);
 });

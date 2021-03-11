@@ -1,3 +1,7 @@
+.header-container, .header-title {
+  flex-shrink: 0;
+}
+
 .header-container {
   width: 100%;
   display: flex;
@@ -40,4 +44,8 @@ footer {
 .cancel-btn {
   border: 1px solid grey;
   width: 15vw;
+}
+
+.GoogleMap {
+  position: relative;
 }

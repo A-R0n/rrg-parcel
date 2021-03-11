@@ -18,7 +18,21 @@ const getParkingLotId = (req, res, next) => {
       res.status(500).send(err)
     });
 };
+
+const getMoreData = (req, res, next) => {
+  req.app
+    .get("db")
+    .get_more_data([req.params.routename])
+    .then((response) => res.status(200).send(response))
+    .catch((err) => {
+      console.log("err: ", err);
+      res.status(500).send(err);
+    });
+};
+
+
 module.exports = {
   getParkingLotId,
   getAllBasicRouteInfo,
+  getMoreData
 };

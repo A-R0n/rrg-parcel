@@ -2,12 +2,13 @@ import React from "react";
 import { DirectionsService, DirectionsRenderer } from "@react-google-maps/api";
 
 export const Directions = (fields) => {
-  const [isSelected, setIsSelected] = React.useState(false);
+  const [isRouteSelected, setIsRouteSelected] = React.useState(false);
   const [response, setResponse] = React.useState(null);
 
   const directionsCallback = React.useCallback((response) => {
     if (response !== null) {
       if (response.status === "OK") {
+        console.log("Status Code 200 Response directionsCallback: ", response);
         setResponse(response);
       } else {
         console.log("response: ", response);
@@ -16,35 +17,35 @@ export const Directions = (fields) => {
   }, []);
 
   React.useEffect(() => {
-    setIsSelected(true);
+    setIsRouteSelected(true);
     setResponse(null);
-  }, [fields.geoCords]);
+  }, [fields.geoCordsParking]);
 
   const miguels = {
     lat: 37.7831,
     lng: -83.6828,
   };
 
+  const hideBottomDrawer = (val) => {
+    console.log("attempting to not render bottom drawer")
+    fields.setShouldShowDirectionsBtnCb(false);
+  }
+
   return (
     <div>
-      {isSelected && fields.geoCords.length > 0 && response === null && (
+      {isRouteSelected && fields.geoCordsParking.length > 0 && response === null && (
         <DirectionsService
           options={{
-            destination: fields.geoCords[0] + "," + fields.geoCords[1],
+            destination: fields.geoCordsParking[0] + "," + fields.geoCordsParking[1],
             origin: miguels,
             travelMode: "DRIVING",
           }}
           callback={directionsCallback}
-          onLoad={(directionsService) => {
-            console.log(
-              "DirectionsService onLoad directionsService: ",
-              directionsService
-            );
-          }}
+          onLoad={(ds) => hideBottomDrawer(ds)}
           // optional
           onUnmount={(ds) => {
             console.log("DirectionsService unmount: ", ds);
-            setIsSelected(false);
+            setIsRouteSelected(false);
           }}
         />
       )}
