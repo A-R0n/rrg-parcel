@@ -118,16 +118,7 @@ export const SearchInputBox = (props) => {
     props.prepareRouteName(routeNameWithoutGrade);
   };
 
-  const enableKeyboardMobile = () => {
-    document.getElementById("special-box").readonly = false;
-  };
-
-  const disableKeyboardMobile = () => {
-    document.getElementById("special-box").readonly = true;
-  };
-
   const clickInComboBox = () => {
-    enableKeyboardMobile();
     props.setDoesUserWantToSearch(true);
   };
 
@@ -139,7 +130,6 @@ export const SearchInputBox = (props) => {
           id="cBox"
           onClick={() => clickInComboBox()}
           onSelect={async (e) => {
-            await disableKeyboardMobile();
             await determineWidthOfText(e);
             await assignValue(e);
             await getRouteImgGCP(e);
@@ -163,7 +153,7 @@ export const SearchInputBox = (props) => {
           </ComboboxPopover>
         </Combobox>
         {routeName.length > 0 ? (
-          <div id="tester" onTouchStart={() => deleteRouteName()}>
+          <div id="del-text-btn" onTouchStart={() => deleteRouteName()}>
             <DeleteTextButton />
           </div>
         ) : null}
