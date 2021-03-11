@@ -134,7 +134,6 @@ export const SearchInputBox = (props) => {
         id="cBox"
         onClick={() => clickInComboBox()}
         onSelect={async (e) => {
-          await doThis()
           await determineWidthOfText(e);
           await assignValue(e);
           await getRouteImgGCP(e);
@@ -143,6 +142,7 @@ export const SearchInputBox = (props) => {
       >
         <ComboboxInput
           id="special-box"
+          onFocus={doThis}
           autoComplete="off"
           value={routeName}
           onChange={handleUserTyping}
