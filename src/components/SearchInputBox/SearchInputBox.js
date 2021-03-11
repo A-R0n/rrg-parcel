@@ -138,7 +138,7 @@ export const SearchInputBox = (props) => {
       >
         <ComboboxInput
           id="special-box"
-          inputMode="search"
+          type="search"
           autoComplete="off"
           value={routeName}
           onChange={handleUserTyping}
