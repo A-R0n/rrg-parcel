@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-// import { Directions } from "../DirectionsForParking/DirectionsForParking";
+import { Directions } from "../DirectionsForParking/DirectionsForParking";
 import { MyStreetView } from "../MyStreetView/MyStreetView";
 
 import "./MyGoogleMap.css";
@@ -60,7 +60,7 @@ function MyGoogleMap(props) {
         zoom={12}
         center={miguels}
         onLoad={onMapLoad}
-        // options={{ gestureHandling: "greedy" }}
+        options={{ gestureHandling: "greedy" }}
       >
         {props.geoCordsParking.length > 0 && (
           <Marker
@@ -76,12 +76,12 @@ function MyGoogleMap(props) {
         {props.isPanoImgExpand && (
           <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} />
         )}
-        {/* {!props.isPanoImgExpand && props.shouldShowDirections && (
+        {!props.isPanoImgExpand && props.shouldShowDirections && (
           <DirectionsForParking
             geoCordsParking={props.geoCordsParking}
             setShouldShowDirectionsBtnCb={props.setShouldShowDirectionsBtnCb}
           />
-        )} */}
+        )}
       </GoogleMap>
 
       {/* <DirectionsButton /> */}

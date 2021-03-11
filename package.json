@@ -29,6 +29,7 @@
     "permissions-policy": "^0.3.0",
     "react": "^17.0.1",
     "react-animate-height": "^2.0.23",
+    "react-bottom-drawer": "^0.1.0",
     "react-dom": "^17.0.1",
     "referrer-policy": "^1.2.0"
   }

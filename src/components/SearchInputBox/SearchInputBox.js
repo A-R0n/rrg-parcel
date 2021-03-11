@@ -55,8 +55,9 @@ export const SearchInputBox = (props) => {
           parseFloat(geoCoordsFormattedParking[1])
         );
       });
-      props.setShouldShowDirectionsButton(true);
-      props.setShouldShowPanoSmallRoutePanoImg(true);
+      // props.setShouldShowDirectionsButton(true);
+      props.ssb(true);
+      props.setIsDrawerVisible(true);
     }
   }, [parkingLotData, isResponse200]);
 
