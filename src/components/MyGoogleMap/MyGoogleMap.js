@@ -1,8 +1,12 @@
 import React, { memo } from "react";
-import { GoogleMap, useLoadScript, Marker, Circle } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  Circle,
+} from "@react-google-maps/api";
 import { DirectionsForParking } from "../DirectionsForParking/DirectionsForParking";
 import { TrailPolyLine } from "../TrailPolyLine/TrailPolyLine";
-import { StartingPosition } from "../StartingPosition/StartingPosition";
 import { MyStreetView } from "../MyStreetView/MyStreetView";
 
 import "./MyGoogleMap.css";
@@ -46,8 +50,6 @@ function MyGoogleMap(props) {
     }
   }, [props.geoCordsParking]);
 
-
-
   if (loadError) return "Error Loading Maps";
   if (!isLoaded) return "Loading Maps";
 
@@ -68,8 +70,7 @@ function MyGoogleMap(props) {
           position={miguels}
           options={{
             icon: {
-              path:
-                "M 10, 20a 10,10 0 .2,.2 20,0a 10,10 0 .2,.2 -20,0",
+              path: "M 10, 20a 10,10 0 .2,.2 20,0a 10,10 0 .2,.2 -20,0",
               anchor: { x: 25, y: 25 },
               strokeColor: "white",
               strokeWeight: 4,
@@ -85,9 +86,9 @@ function MyGoogleMap(props) {
               url:
                 'data:image/svg+xml;utf-8, \
               <svg width="20" height="20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"> \
-              <path fill="deepskyblue" stroke="deepskyblue" stroke-width="3.0" d="M 100, 100m -75, 0a 75 75 0 1,0 150,0a 75,75 0 1,0 -150,0"/>\</svg>'
+              <path fill="deepskyblue" stroke="deepskyblue" stroke-width="3.0" d="M 100, 100m -75, 0a 75 75 0 1,0 150,0a 75,75 0 1,0 -150,0"/></svg>',
             },
-            strokeWeight: 4
+            strokeWeight: 4,
           }}
         />
         {props.geoCordsParking.length > 0 && (
