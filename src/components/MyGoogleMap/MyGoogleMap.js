@@ -2,12 +2,10 @@ import React, { memo } from "react";
 import {
   GoogleMap,
   useLoadScript,
-  Marker,
-  Circle,
-} from "@react-google-maps/api";
+  Marker} from "@react-google-maps/api";
 import { DirectionsForParking } from "../DirectionsForParking/DirectionsForParking";
 import { TrailPolyLine } from "../TrailPolyLine/TrailPolyLine";
-import { MyStreetView } from "../MyStreetView/MyStreetView";
+// import { MyStreetView } from "../MyStreetView/MyStreetView";
 
 import "./MyGoogleMap.css";
 
@@ -41,6 +39,7 @@ function MyGoogleMap(props) {
 
   React.useEffect(() => {
     if (props.geoCordsParking.length > 0) {
+        // let newLat = props.geoCordsParking[0] - 0.3;
       let lat = props.geoCordsParking[0];
       let lng = props.geoCordsParking[1];
       mapRef.current.panTo({
@@ -55,13 +54,19 @@ function MyGoogleMap(props) {
 
   const parking_marker = require("../../../public/parking.svg");
 
+  let newLat = props.geoCordsParking[0] - 0.2;
+
+  console.log("geo cords parking lat: ", props.geoCordsParking[0]);
+
+  console.log("new lat: ", newLat);
+
   return (
     <div className="google-container">
       <GoogleMap
         ref={mapRef}
         mapContainerStyle={mapContainerStyle}
-        zoom={12}
-        center={miguels}
+        zoom={11}
+        center={{ lat: 37.6, lng: -83.6828 }}
         onLoad={onMapLoad}
         // options={{ gestureHandling: "greedy" }}
       >

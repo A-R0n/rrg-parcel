@@ -10,13 +10,7 @@ import Drawer from "react-bottom-drawer";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
-  const [
-    didUserSelectASuggestedRoute,
-    setDidUserSelectASuggestedRoute,
-  ] = React.useState(false);
-  const [isLessThanSignShowing, setIsLessThanSignShowing] = React.useState(
-    false
-  );
+
   const [shouldShowDirections, setShouldShowDirections] = React.useState(false);
   const [
     shouldShowDirectionsButton,
@@ -26,17 +20,6 @@ export default function App() {
     shouldShowSmallRoutePanoImg,
     setShouldShowSmallRoutePanoImg,
   ] = React.useState(false);
-  const [shouldShowBigRouteImg, setShouldShowBigRouteImg] = React.useState(
-    false
-  );
-  const [shouldShowRouteTitle, setShouldShowRouteTitle] = React.useState(false);
-  const [shouldShowRouteGrade, setShouldShowRouteGrade] = React.useState(false);
-  const [shouldShowRouteType, setShouldShowRouteType] = React.useState(false);
-  const [
-    shouldShowRouteIsDryInRain,
-    setShouldShowRouteIsDryInRain,
-  ] = React.useState(false);
-  const [shouldShowMarker, setShouldShowMarker] = React.useState(false);
   const [geoCordsParking, setGeoCordsParking] = useState([]);
   const [geoCordsFinishLine, setGeoCordsFinishline] = React.useState([]);
   const [routeName, setRouteName] = useState("");
@@ -55,8 +38,6 @@ export default function App() {
   };
 
   const setSearchInputFieldForParking = useCallback((lat, lng) => {
-    console.log("panTo: ", lat + ", " + lng);
-    // mapRef.current.panTo({ lat, lng });
     setGeoCordsParking([lat, lng]);
     mapRefTrick.current.style.opacity = "1";
   }, []);
@@ -87,13 +68,13 @@ export default function App() {
     setIsDrawerVisible(false);
   }, []);
 
-    // const onDrawerShouldClose = React.useCallback(() => {
-    //   setIsDrawerVisible(false);
-    // }, []);
-
   const ssb = React.useCallback((val) => {
     setShouldShowSmallRoutePanoImg(val);
   }, []);
+
+  let formatttedRouteName = routeName.charAt(0).toUpperCase() + routeName.slice(1);
+
+  // let senja_oj_img = require("../../../public/Senja_OrangeJuice.jpg");
   return (
     <main className="App">
       <AnimateHeight
@@ -147,8 +128,9 @@ export default function App() {
           duration={250}
           hideScrollbars={false}
         >
-          <h1>{routeName}</h1>
-          <p>This route is really awesome</p>
+          {/* <img id="oj-route"src={senja_oj_img} alt="Orange Juice route"></img> */}
+          <h1>{formatttedRouteName}</h1>
+          <p>This route is dope af</p>
           <DirectionsButton
             onDrawerClose={onDrawerClose}
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}

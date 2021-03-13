@@ -10,9 +10,8 @@ export default function DirectionsButton(props) {
   }
 
   return (
-    <div>
+    <div id="dir-btn-container">
       <button id="dir-btn"
-        style={{ background: "#0099ff", width: "200px", color: "white" }}
         onClick={() => doThis(true)}
       >
               Directions

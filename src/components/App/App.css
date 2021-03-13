@@ -49,3 +49,8 @@ footer {
 .GoogleMap {
   position: relative;
 }
+
+#oj-route {
+  width: 70px;
+  height: 70px;
+}
