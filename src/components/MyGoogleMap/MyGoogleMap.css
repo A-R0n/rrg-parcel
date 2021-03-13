@@ -1,12 +1,11 @@
-button #directions-btn {
-    background: rgb(57, 158, 192);
-    color: white;
-    font-weight: bold;
-    width: 40vw;
-    height: 10vh;
+#parking-marker {
+  height: 40px;
+  width: 40px;
 }
 
-#parking-marker {
-    height: 40px;
-    width: 40px;
+#user-location {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

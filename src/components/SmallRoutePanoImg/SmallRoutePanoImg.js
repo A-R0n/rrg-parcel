@@ -23,7 +23,7 @@ export default function SmallRoutePanoImg(props) {
           id="pano-route-img"
           alt="panoramic route image"
           src={
-            process.env.GOOGLE_CLOUD_STORAGE_BUCKET_URL + "route/" + `${name}`
+            process.env.GOOGLE_CLOUD_STORAGE_BUCKET_URL + `${name}`
           }
           onClick={() => doThis()}
         ></img>

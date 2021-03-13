@@ -53,7 +53,7 @@ export const DirectionsForParking = (fields) => {
         />
       )}
       {response !== null && (
-        <DirectionsRenderer options={{ directions: response }} />
+        <DirectionsRenderer options={{ directions: response, markerOptions: {"visible": false} }} />
       )}
     </div>
   );
