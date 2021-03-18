@@ -7,7 +7,6 @@ import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
 import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
-import TestComp from "../TestComp/TestComp";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
@@ -104,7 +103,6 @@ export default function App() {
               ssb={ssb}
               setIsDrawerVisible={setIsDrawerVisible}
             />
-            <TestComp />
           </div>
         </div>
       </AnimateHeight>
