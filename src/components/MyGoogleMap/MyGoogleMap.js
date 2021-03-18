@@ -71,7 +71,7 @@ function MyGoogleMap(props) {
         // options={{ gestureHandling: "greedy" }}
       >
         <Marker
-          id="user-location"
+          id="user-location-outer"
           position={miguels}
           options={{
             icon: {
@@ -83,7 +83,7 @@ function MyGoogleMap(props) {
           }}
         />
         <Marker
-          id="user-location2"
+          id="user-location-inner"
           position={miguels}
           options={{
             icon: {
@@ -95,6 +95,7 @@ function MyGoogleMap(props) {
             },
             strokeWeight: 4,
           }}
+          title="your location"
         />
         {props.geoCordsParking.length > 0 && (
           <Marker
@@ -105,6 +106,7 @@ function MyGoogleMap(props) {
             }}
             icon={parking_marker}
             onLoad={onMarkerLoad}
+            title= "parking"
           />
         )}
         {/* {props.isPanoImgExpand && (

@@ -1,10 +1,14 @@
 import React from "react";
 import { DirectionsService, DirectionsRenderer } from "@react-google-maps/api";
 
-export const DirectionsForParking = (fields) => {
-  console.log("fields: ", fields);
+export const DirectionsForParking = (props) => {
+  console.log("props: ", props);
+      console.log("my path to parking outer: ", encodeURIComponent(pathToParking));
+
   const [isRouteSelected, setIsRouteSelected] = React.useState(false);
+  const [pathToParking, setPathToParking] = React.useState([]);
   const [response, setResponse] = React.useState(null);
+  console.log("directions for parking response: ", response);
 
   const directionsCallback = React.useCallback((response) => {
     if (response !== null) {
@@ -17,11 +21,21 @@ export const DirectionsForParking = (fields) => {
     }
   }, []);
 
+  let myPathToParking = [];
+
+  React.useEffect(() => {
+    if (response !== null) {
+      myPathToParking = response.routes[0]["overview_polyline"]
+      setPathToParking(myPathToParking);
+    }
+    console.log("my path to parking: ", encodeURIComponent(pathToParking));
+  }, [response]);
+
   React.useEffect(() => {
     setIsRouteSelected(true);
     setResponse(null);
     console.log("response: ", response);
-  }, [fields.geoCordsParking]);
+  }, [props.geoCordsParking]);
 
   const miguels = {
     lat: 37.7831,
@@ -30,30 +44,35 @@ export const DirectionsForParking = (fields) => {
 
   // const hideBottomDrawer = (val) => {
   //   console.log("attempting to not render bottom drawer")
-  //   fields.setShouldShowDirectionsBtnCb(false);
+  //   props.setShouldShowDirectionsBtnCb(false);
   // }
 
   return (
     <div>
-      {isRouteSelected && fields.geoCordsParking.length > 0 && response === null && (
-        <DirectionsService
-          options={{
-            destination: fields.geoCordsParking[0] + "," + fields.geoCordsParking[1],
-            origin: miguels,
-            travelMode: "DRIVING",
-          }}
-          callback={directionsCallback}
-          // onLoad={(ds) => hideBottomDrawer(ds)}
-          // optional
-          onUnmount={(ds) => {
-            console.log("DirectionsService unmount: ", ds);
-            setIsRouteSelected(false);
-            // fields.setShouldShowDirectionsBtnCb(false);
-          }}
-        />
-      )}
+      {isRouteSelected &&
+        props.geoCordsParking.length > 0 &&
+        response === null && (
+          <DirectionsService
+            options={{
+              destination:
+                props.geoCordsParking[0] + "," + props.geoCordsParking[1],
+              origin: miguels,
+              travelMode: "DRIVING",
+            }}
+            callback={directionsCallback}
+            // onLoad={(ds) => hideBottomDrawer(ds)}
+            // optional
+            onUnmount={(ds) => {
+              console.log("DirectionsService unmount: ", ds);
+              setIsRouteSelected(false);
+              // props.setShouldShowDirectionsBtnCb(false);
+            }}
+          />
+        )}
       {response !== null && (
-        <DirectionsRenderer options={{ directions: response, markerOptions: {"visible": false} }} />
+        <DirectionsRenderer
+          options={{ directions: response, markerOptions: { visible: false } }}
+        />
       )}
     </div>
   );
