@@ -8,6 +8,7 @@ import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
 import SmallRouteThumbNail from "../SmallRouteThumbNail/SmallRouteThumbNail";
+import ModalRouteImage from "../ModalRouteImage/ModalRouteImage";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
@@ -64,7 +65,7 @@ export default function App() {
   }, []);
 
     const smallRouteThumbNailClicked = useCallback((val) => {
-      console.log("val: ", val);
+      console.log("val: ");
       setIsThumbNailExpand(val);
     }, []);
 
@@ -147,6 +148,7 @@ export default function App() {
             smallRouteThumbNailClicked={smallRouteThumbNailClicked}
           />
         )}
+        {isThumbNailExpand && (<ModalRouteImage />)}
 
         <Drawer
           isVisible={isDrawerVisible}
