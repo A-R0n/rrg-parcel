@@ -57,6 +57,7 @@ export const SearchInputBox = (props) => {
       });
       // props.setShouldShowDirectionsButton(true);
       props.ssb(true);
+      props.ssb2(true)
       props.setIsDrawerVisible(true);
     }
   }, [parkingLotData, isResponse200]);

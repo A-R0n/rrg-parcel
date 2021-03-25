@@ -7,6 +7,7 @@ import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
 import Drawer from "react-bottom-drawer";
+import SmallRouteThumbNail from "../SmallRouteThumbNail/SmallRouteThumbNail";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
@@ -20,10 +21,16 @@ export default function App() {
     shouldShowSmallRoutePanoImg,
     setShouldShowSmallRoutePanoImg,
   ] = React.useState(false);
+  const [
+    shouldShowSmallRouteThumbNail,
+    setShouldShowSmallRouteThumbNail,
+  ] = React.useState(false);
+
   const [geoCordsParking, setGeoCordsParking] = useState([]);
   const [geoCordsFinishLine, setGeoCordsFinishline] = React.useState([]);
   const [routeName, setRouteName] = useState("");
   const [isPanoImgExpand, setIsPanoImgExpand] = useState(false);
+  const [isThumbNailExpand, setIsThumbNailExpand] = useState(false);
 
   const [isDrawerVisible, setIsDrawerVisible] = React.useState(false);
 
@@ -56,6 +63,11 @@ export default function App() {
     setIsPanoImgExpand(val);
   }, []);
 
+    const smallRouteThumbNailClicked = useCallback((val) => {
+      console.log("val: ", val);
+      setIsThumbNailExpand(val);
+    }, []);
+
   const setShouldShowDirectionsCb = useCallback((val) => {
     setShouldShowDirections(val);
   }, []);
@@ -72,7 +84,12 @@ export default function App() {
     setShouldShowSmallRoutePanoImg(val);
   }, []);
 
-  let formatttedRouteName = routeName.charAt(0).toUpperCase() + routeName.slice(1);
+  const ssb2 = React.useCallback((val) => {
+    setShouldShowSmallRouteThumbNail(val);
+  }, []);
+
+  let formatttedRouteName =
+    routeName.charAt(0).toUpperCase() + routeName.slice(1);
 
   // let senja_oj_img = require("../../../public/Senja_OrangeJuice.jpg");
   return (
@@ -101,6 +118,7 @@ export default function App() {
               prepareRouteName={prepareRouteName}
               setShouldShowDirectionsButton={setShouldShowDirectionsButton}
               ssb={ssb}
+              ssb2={ssb2}
               setIsDrawerVisible={setIsDrawerVisible}
             />
           </div>
@@ -111,6 +129,7 @@ export default function App() {
           geoCordsParking={geoCordsParking}
           geoCordsFinishLine={geoCordsFinishLine}
           isPanoImgExpand={isPanoImgExpand}
+          isThumbNailExpand={isThumbNailExpand}
           smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           shouldShowDirections={shouldShowDirections}
@@ -122,6 +141,13 @@ export default function App() {
             smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           />
         )} */}
+        {shouldShowSmallRouteThumbNail && (
+          <SmallRouteThumbNail
+            routeName={routeName}
+            smallRouteThumbNailClicked={smallRouteThumbNailClicked}
+          />
+        )}
+
         <Drawer
           isVisible={isDrawerVisible}
           onClose={onDrawerClose}
@@ -129,8 +155,6 @@ export default function App() {
           hideScrollbars={false}
         >
           {/* <img id="oj-route"src={senja_oj_img} alt="Orange Juice route"></img> */}
-          <h1>{formatttedRouteName}</h1>
-          <p>This route is dope af</p>
           <DirectionsButton
             onDrawerClose={onDrawerClose}
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
