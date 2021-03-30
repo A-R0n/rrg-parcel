@@ -3,7 +3,15 @@ import { StreetViewPanorama } from "@react-google-maps/api";
 // import ExtraInfo from "../ExtraInfo/ExtraInfo";
 
 // the geo cords need to be the position of the x and y where the mouse/thumb is that the user drops the man
-export const MyStreetView = () => {
+export const MyStreetView = (props) => {
+
+  console.log("check dis: ", props);
+
+  let fp = props.geoCordsFinishLine[0].split(",");
+
+  let pi_fp = parseInt(fp[0]);
+  let pi_fp2 = parseInt(fp[1]);
+  console.log("fp: ", fp);
   // console.log("my street view geo cords: ", props.geoCordsFinishLine["lat"]);
 
   // const dest = {
@@ -18,15 +26,15 @@ export const MyStreetView = () => {
   let lengthy = "AF1QipP2wOaFBeHPlw5E6IUSUjhvXUDfy3Gh7KtKVyDt";
   console.log("length of pano id: ", lengthy.length);
 
-  const center = {
-    lat: 37.6528475,
-    lng: -83.7246743,
-  };
+  // const center = {
+  //   lat: 37.6528475,
+  //   lng: -83.7246743,
+  // };
 
   return (
     <div>
       <StreetViewPanorama
-        position={center}
+        position={pi_fp, pi_fp2}
         options={{
           // panoId: "AF1QipP2wOaFBeHPlw5E6IUSUjhvXUDfy3Gh7KtKVyDt",
           visible: true

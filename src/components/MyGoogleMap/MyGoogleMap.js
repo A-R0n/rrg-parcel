@@ -106,11 +106,11 @@ function MyGoogleMap(props) {
             }}
             icon={parking_marker}
             onLoad={onMarkerLoad}
-            title= "parking"
+            title="parking"
           />
         )}
         {props.isPanoImgExpand && (
-          <MyStreetView />
+          <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} />
         )}
         {props.shouldShowDirections && (
           <DirectionsForParking geoCordsParking={props.geoCordsParking} />

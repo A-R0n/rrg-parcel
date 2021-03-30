@@ -28,7 +28,7 @@ export default function App() {
   ] = React.useState(false);
 
   const [geoCordsParking, setGeoCordsParking] = useState([]);
-  const [geoCordsFinishLine, setGeoCordsFinishline] = React.useState([]);
+  const [geoCordsFinishLine, setGeoCordsFinishLine] = React.useState([]);
   const [routeName, setRouteName] = useState("");
   const [isPanoImgExpand, setIsPanoImgExpand] = useState(false);
   const [isThumbNailExpand, setIsThumbNailExpand] = useState(false);

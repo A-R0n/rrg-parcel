@@ -1,2 +1,2 @@
-SELECT routename, difficulty, parkinglotid
+SELECT routename, difficulty, parkinglotid, geocoords
 FROM allroutes;

@@ -36,7 +36,7 @@ function font2(element) {
 
 export const SearchInputBox = (props) => {
   let [routeName, setRouteName] = React.useState("");
-  let [routeItemFromList, parkingLotId] = useRouteListItems(routeName);
+  let [routeItemFromList, parkingLotId, geocoords] = useRouteListItems(routeName);
   let [parkingLotData, isResponse200] = useParkingLotIdItem(parkingLotId);
   let [widthOfCBox, setWidthOfCBox] = React.useState(0);
   let widthOfText = React.useRef();
@@ -59,6 +59,7 @@ export const SearchInputBox = (props) => {
       props.ssb(true);
       props.ssb2(true)
       props.setIsDrawerVisible(true);
+      props.setSearchInputFieldForFinishLine(geocoords);
     }
   }, [parkingLotData, isResponse200]);
 

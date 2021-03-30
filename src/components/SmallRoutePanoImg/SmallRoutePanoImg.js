@@ -10,8 +10,6 @@ export default function SmallRoutePanoImg(props) {
     lng: "-83.6828",
   };
 
-  console.log("da process dot env google api street view: ", process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-
   // const climbing_route_pic_default = require("~/public/climbing.png")
   return (
     <div className="pano-route-img-container">
