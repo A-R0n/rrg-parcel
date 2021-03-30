@@ -4,8 +4,8 @@ import {
   useLoadScript,
   Marker} from "@react-google-maps/api";
 import { DirectionsForParking } from "../DirectionsForParking/DirectionsForParking";
-import { TrailPolyLine } from "../TrailPolyLine/TrailPolyLine";
-// import { MyStreetView } from "../MyStreetView/MyStreetView";
+// import { TrailPolyLine } from "../TrailPolyLine/TrailPolyLine";
+import { MyStreetView } from "../MyStreetView/MyStreetView";
 
 import "./MyGoogleMap.css";
 
@@ -109,13 +109,13 @@ function MyGoogleMap(props) {
             title= "parking"
           />
         )}
-        {/* {props.isPanoImgExpand && (
-          <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} />
-        )} */}
+        {props.isPanoImgExpand && (
+          <MyStreetView />
+        )}
         {props.shouldShowDirections && (
           <DirectionsForParking geoCordsParking={props.geoCordsParking} />
         )}
-        {props.shouldShowDirections && <TrailPolyLine />}
+        {/* {props.shouldShowDirections && <TrailPolyLine />} */}
       </GoogleMap>
     </div>
   );

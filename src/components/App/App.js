@@ -3,12 +3,12 @@ import "./App.css";
 import AnimateHeight from "react-animate-height";
 import { SearchInputBox } from "../SearchInputBox/SearchInputBox";
 import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
-// import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
+import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
 import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
-import Drawer from "react-bottom-drawer";
-import SmallRouteThumbNail from "../SmallRouteThumbNail/SmallRouteThumbNail";
-import ModalRouteImage from "../ModalRouteImage/ModalRouteImage";
+// import Drawer from "react-bottom-drawer";
+// import SmallRouteThumbNail from "../SmallRouteThumbNail/SmallRouteThumbNail";
+// import ModalRouteImage from "../ModalRouteImage/ModalRouteImage";
 
 export default function App() {
   const [doesUserWantToSearch, setDoesUserWantToSearch] = React.useState(false);
@@ -136,32 +136,32 @@ export default function App() {
           shouldShowDirections={shouldShowDirections}
           setShouldShowDirectionsBtnCb={setShouldShowDirectionsBtnCb}
         />
-        {/* {shouldShowSmallRoutePanoImg && (
+        {shouldShowSmallRoutePanoImg && (
           <SmallRoutePanoImg
             routeName={routeName}
             smallRoutePanoImgClicked={smallRoutePanoImgClicked}
           />
-        )} */}
-        {shouldShowSmallRouteThumbNail && (
+        )}
+        {/* {shouldShowSmallRouteThumbNail && (
           <SmallRouteThumbNail
             routeName={routeName}
             smallRouteThumbNailClicked={smallRouteThumbNailClicked}
           />
-        )}
-        {isThumbNailExpand && (<ModalRouteImage />)}
+        )} */}
+        {/* {isThumbNailExpand && (<ModalRouteImage />)} */}
 
-        <Drawer
+        {/* <Drawer
           isVisible={isDrawerVisible}
           onClose={onDrawerClose}
           duration={250}
           hideScrollbars={false}
-        >
+        > */}
           {/* <img id="oj-route"src={senja_oj_img} alt="Orange Juice route"></img> */}
-          <DirectionsButton
+          {/* <DirectionsButton
             onDrawerClose={onDrawerClose}
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           />
-        </Drawer>
+        </Drawer> */}
       </div>
     </main>
   );
