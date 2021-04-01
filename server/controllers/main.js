@@ -19,6 +19,17 @@ const getParkingLotId = (req, res, next) => {
     });
 };
 
+const getTrailId = (req, res, next) => {
+  req.app
+    .get("db")
+    .get_trail([req.params.trailid])
+    .then((response) => res.status(200).send(response))
+    .catch((err) => {
+      console.log("err: ", err);
+      res.status(500).send(err);
+    });
+};
+
 const getMoreData = (req, res, next) => {
   req.app
     .get("db")
@@ -34,5 +45,6 @@ const getMoreData = (req, res, next) => {
 module.exports = {
   getParkingLotId,
   getAllBasicRouteInfo,
-  getMoreData
+  getMoreData,
+  getTrailId
 };

@@ -8,6 +8,7 @@ export const TrailPolyLine = (props) => {
       console.log("polyline: ", polyline);
     };
 
+  // let cords_path = props.geocoords_path.split(",");
     const path = [
         { lat: 37.72452, lng: -83.63471 },
         { lat: 37.732, lng: -83.637 },

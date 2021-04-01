@@ -12,9 +12,12 @@ const referrerPolicy = require("referrer-policy");
 
 const app = express();
 
-const { getParkingLotId, getAllBasicRouteInfo, getMoreData } = require("./controllers/main");
+const {
+  getParkingLotId,
+  getAllBasicRouteInfo,
+  getMoreData
+} = require("./controllers/main");
 // const e = require("express");
-
 
 var whitelist = ["http://localhost:1234"];
 var corsOptions = {
@@ -62,9 +65,6 @@ const dbConfig = {
 
 app.use(referrerPolicy({ policy: "same-origin" }));
 
-
-
-
 massive(dbConfig)
   .then((dbInstance) => {
     // console.log(dbInstance);
@@ -73,6 +73,7 @@ massive(dbConfig)
   .catch((err) => console.log(err));
 
 app.get(`/api/routes`, getAllBasicRouteInfo);
+// app.get(`/api/trail/:trailid`, getTrailId);
 app.get(`/api/routes/:routename`, getMoreData);
 app.get(`/api/parkinglot/:parkinglotid`, getParkingLotId);
 

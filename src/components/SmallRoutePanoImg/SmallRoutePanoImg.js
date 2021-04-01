@@ -8,19 +8,18 @@ export default function SmallRoutePanoImg(props) {
   const doThis = () => {
     console.log("think of something: ");
     props.smallRoutePanoImgClicked(true);
-  }
+  };
 
-
-  const climbing_route_pic_default = require("~/climbing.png")
+  // const climbing_route_pic_default = require("~/build/climbing.png");
   return (
     <div className="pano-route-img-container">
       {props.routeName.length > 0 && (
-        <img
+        <div
           id="pano-route-img"
           alt="panoramic route image"
-          src={climbing_route_pic_default}
+          // src={climbing_route_pic_default}
           onClick={() => doThis()}
-        ></img>
+        ></div>
       )}
     </div>
   );
