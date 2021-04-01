@@ -5,41 +5,25 @@ import { StreetViewPanorama } from "@react-google-maps/api";
 // the geo cords need to be the position of the x and y where the mouse/thumb is that the user drops the man
 export const MyStreetView = (props) => {
 
-  console.log("check dis: ", props);
+  const [is360ImgVisible, setIs360ImgVisible] = React.useState(true);
+  const [lat, setLat] = React.useState();
+  const [lng, setLng] = React.useState();
 
   let fp = props.geoCordsFinishLine[0].split(",");
 
-  let pi_fp = parseInt(fp[0]);
-  let pi_fp2 = parseInt(fp[1]);
-  console.log("fp: ", fp);
-  // console.log("my street view geo cords: ", props.geoCordsFinishLine["lat"]);
-
-  // const dest = {
-  //   lat: props.geoCordsFinishLine["lat"],
-  //   lng: props.geoCordsFinishLine["lng"],
-  // };
-
-  const handleCloseClick = (e) => {
-    console.log("handle close click", e);
-  }
-
-  let lengthy = "AF1QipP2wOaFBeHPlw5E6IUSUjhvXUDfy3Gh7KtKVyDt";
-  console.log("length of pano id: ", lengthy.length);
-
-  // const center = {
-  //   lat: 37.6528475,
-  //   lng: -83.7246743,
-  // };
+  React.useEffect(() => {
+    console.log("hi")
+    setLat(parseFloat(fp[0]));
+    setLng(parseFloat(fp[1]));
+    setIs360ImgVisible(true);
+  }, [props]);
 
   return (
     <div>
       <StreetViewPanorama
-        position={pi_fp, pi_fp2}
-        options={{
-          // panoId: "AF1QipP2wOaFBeHPlw5E6IUSUjhvXUDfy3Gh7KtKVyDt",
-          visible: true
-        }}
-        onCloseClick={(e) => handleCloseClick(e)}
+        position={{ lat: lat, lng: lng }}
+        visible={is360ImgVisible}
+        onCloseClick={() => props.smallRoutePanoImgClicked(false)}
       />
       {/* <ExtraInfo geoCordsParking={props.geoCordsParking} /> */}
     </div>

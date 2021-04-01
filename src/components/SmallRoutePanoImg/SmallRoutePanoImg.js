@@ -5,20 +5,21 @@ import "./SmallRoutePanoImg.css";
 export default function SmallRoutePanoImg(props) {
   console.log("props route name length: ", props.routeName.length);
 
-  const cords = {
-    lat: "37.7831",
-    lng: "-83.6828",
-  };
+  const doThis = () => {
+    console.log("think of something: ");
+    props.smallRoutePanoImgClicked(true);
+  }
 
-  // const climbing_route_pic_default = require("~/public/climbing.png")
+
+  const climbing_route_pic_default = require("~/climbing.png")
   return (
     <div className="pano-route-img-container">
       {props.routeName.length > 0 && (
         <img
           id="pano-route-img"
           alt="panoramic route image"
-          // src={climbing_route_pic_default}
-          onClick={() => props.smallRoutePanoImgClicked(true)}
+          src={climbing_route_pic_default}
+          onClick={() => doThis()}
         ></img>
       )}
     </div>

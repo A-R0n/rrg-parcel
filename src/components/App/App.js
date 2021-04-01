@@ -59,13 +59,13 @@ export default function App() {
     setRouteName(routeName);
   }, []);
 
+
+
   const smallRoutePanoImgClicked = useCallback((val) => {
-    console.log("val: ", val);
     setIsPanoImgExpand(val);
   }, []);
 
     const smallRouteThumbNailClicked = useCallback((val) => {
-      console.log("val: ");
       setIsThumbNailExpand(val);
     }, []);
 

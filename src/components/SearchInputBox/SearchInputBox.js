@@ -48,7 +48,6 @@ export const SearchInputBox = (props) => {
   useEffect(() => {
     if (isResponse200) {
       parkingLotData.map((parkingLot) => {
-        console.log("props panTo: ", props);
         let geoCoordsFormattedParking = parkingLot.geocoords.split(",");
         props.setSearchInputFieldForParking(
           parseFloat(geoCoordsFormattedParking[0]),
@@ -59,6 +58,9 @@ export const SearchInputBox = (props) => {
       props.ssb(true);
       props.ssb2(true)
       props.setIsDrawerVisible(true);
+      // let frmgc = geocoords[0].split(",");
+      // let frmgc1 = parseFloat(frmgc[0]);
+      // let frmgc2 = parseFloat(frmgc[1]);
       props.setSearchInputFieldForFinishLine(geocoords);
     }
   }, [parkingLotData, isResponse200]);
@@ -100,7 +102,6 @@ export const SearchInputBox = (props) => {
       routeNameWithoutGrade.charAt(0).toUpperCase() +
       routeNameWithoutGrade.slice(1);
     axios.get(`http://localhost:8888/api/routes/${newThing}`).then((res) => {
-      console.log("res dit: ", res.data);
       setMyShit(res.data);
     });
   };
@@ -116,7 +117,6 @@ export const SearchInputBox = (props) => {
   const getRouteImgGCP = (name) => {
     let routeNameWithoutGrade = name.split(", 5.").shift().toLowerCase();
     setRouteNameNoGrade(routeNameWithoutGrade);
-    console.log("route name without grade: ", routeNameWithoutGrade);
     props.prepareRouteName(routeNameWithoutGrade);
   };
 

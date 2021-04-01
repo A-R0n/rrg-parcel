@@ -33,9 +33,6 @@ function MyGoogleMap(props) {
     lng: -83.6828,
   };
 
-  const onMarkerLoad = (marker) => {
-    console.log("marker loaded: ", marker);
-  };
 
   React.useEffect(() => {
     if (props.geoCordsParking.length > 0) {
@@ -53,12 +50,6 @@ function MyGoogleMap(props) {
   if (!isLoaded) return "Loading Maps";
 
   const parking_marker = require("../../../public/parking.svg");
-
-  let newLat = props.geoCordsParking[0] - 0.2;
-
-  console.log("geo cords parking lat: ", props.geoCordsParking[0]);
-
-  console.log("new lat: ", newLat);
 
   return (
     <div className="google-container">
@@ -105,12 +96,11 @@ function MyGoogleMap(props) {
               lng: props.geoCordsParking[1],
             }}
             icon={parking_marker}
-            onLoad={onMarkerLoad}
             title="parking"
           />
         )}
         {props.isPanoImgExpand && (
-          <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} />
+          <MyStreetView geoCordsFinishLine={props.geoCordsFinishLine} smallRoutePanoImgClicked={ props.smallRoutePanoImgClicked}/>
         )}
         {props.shouldShowDirections && (
           <DirectionsForParking geoCordsParking={props.geoCordsParking} />
