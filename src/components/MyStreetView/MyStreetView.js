@@ -9,22 +9,26 @@ export const MyStreetView = (props) => {
   const [lat, setLat] = React.useState();
   const [lng, setLng] = React.useState();
 
-  let fp = props.geoCordsFinishLine[0].split(",");
+  let fp;
 
   React.useEffect(() => {
+    fp = props.geoCordsFinishLine[0].split(",");
     console.log("hi")
-    setLat(parseFloat(fp[0]));
-    setLng(parseFloat(fp[1]));
+    setLat(fp[0]);
+    setLng(fp[1]);
     setIs360ImgVisible(true);
   }, [props]);
 
   return (
     <div>
-      <StreetViewPanorama
-        position={{ lat: lat, lng: lng }}
-        visible={is360ImgVisible}
-        onCloseClick={() => props.smallRoutePanoImgClicked(false)}
-      />
+      {props.geoCordsFinishLine[0].length > 0 && (
+        <StreetViewPanorama
+          position={{ lat: parseFloat(lat), lng: parseFloat(lng) }}
+          visible={is360ImgVisible}
+          onCloseClick={() => props.smallRoutePanoImgClicked(false)}
+        />
+      )}
+
       {/* <ExtraInfo geoCordsParking={props.geoCordsParking} /> */}
     </div>
   );
