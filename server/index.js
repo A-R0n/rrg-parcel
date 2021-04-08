@@ -30,7 +30,9 @@ var corsOptions = {
   },
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors);
+
 
 const port = process.env.SERVER_PORT || 8887;
 
