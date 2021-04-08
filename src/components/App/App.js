@@ -6,7 +6,7 @@ import MyGoogleMap from "../MyGoogleMap/MyGoogleMap.js";
 import SmallRoutePanoImg from "../SmallRoutePanoImg/SmallRoutePanoImg";
 import DirectionsButton from "../DirectionsButton/DirectionsButton";
 
-// import Drawer from "react-bottom-drawer";
+import Drawer from "react-bottom-drawer";
 // import SmallRouteThumbNail from "../SmallRouteThumbNail/SmallRouteThumbNail";
 // import ModalRouteImage from "../ModalRouteImage/ModalRouteImage";
 
@@ -150,18 +150,17 @@ export default function App() {
         )} */}
         {/* {isThumbNailExpand && (<ModalRouteImage />)} */}
 
-        {/* <Drawer
+        <Drawer
           isVisible={isDrawerVisible}
           onClose={onDrawerClose}
           duration={250}
           hideScrollbars={false}
-        > */}
-          {/* <img id="oj-route"src={senja_oj_img} alt="Orange Juice route"></img> */}
-          {/* <DirectionsButton
+        >
+          <DirectionsButton
             onDrawerClose={onDrawerClose}
             setShouldShowDirectionsCb={setShouldShowDirectionsCb}
           />
-        </Drawer> */}
+        </Drawer>
       </div>
     </main>
   );

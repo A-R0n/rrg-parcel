@@ -1,20 +1,18 @@
 .pano-route-img-container {
-  width: 12.5vw;
-  height: 7.5vh;
+  width: 36px;
+  height: 40px;
   position: absolute;
   left: 20px;
   top: 100px;
   border: 2px solid white;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   z-index: 0;
+  background: white;
 }
 
 #pano-route-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
-  border-radius: 10px;
-  /* background-image: url('https://www.flaticon.com/svg/vstatic/svg/281/281322.svg?token=exp=1617241253~hmac=8e49ce3b74427da976919a1fdf1420b2') */
+  /* border-radius: 10px; */
+  /* background: url('~/climbing_32px.png') center no-repeat; */
 }
